@@ -23,7 +23,6 @@ class PagesController < ApplicationController
       flash[:success] = "Thank you for your donation!"
       redirect_to root_path
     end
-
   end
 
 end

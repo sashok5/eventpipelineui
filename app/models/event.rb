@@ -13,7 +13,4 @@ class Event < ApplicationRecord
             where('event_date > ?', after)
 
   end
-
-
-
 end

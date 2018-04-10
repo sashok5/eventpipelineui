@@ -1,6 +1,6 @@
 <% if signed_in? %>
   <div class="row">
-   Hello, <%= current_user.name %>!  Recommended events for you
+    Hello, <%= current_user.name %>!  Recommended events for you
   </div>
   <br>
 
@@ -12,29 +12,23 @@
     </div>
   </div>
 
-
   <%= link_to "View all upcoming events.", "events" %>
 
   <div class=" text-center">
-
-        <%= link_to "Create a new event!", newevent_path,
-                    class: "btn btn-large btn-primary" %>
-
+    <%= link_to "Create a new event!", newevent_path, class: "btn btn-large btn-primary" %>
   </div>
 
 <% else %>
-  <div class=" hero-unit">
+  <div class="hero-unit">
     <h1>Welcome to Group Up</h1>
 
     <p class="lead center">
       This is the home page for starting your own group and joining the exciting world of groups and meets.
-
     </p>
 
-<div class="center">
-  <%= link_to "Sign up now!", signup_path,
-              class: "btn btn-large btn-primary" %></div>
-
+    <div class="center">
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+    </div>
   </div>
 
   <br>
@@ -45,9 +39,7 @@
 
 <% end %>
 
-
 <h1>Find events by interest</h1>
 <div class="row">
-
-<%= render Tag.all %>
+  <%= render Tag.all %>
 </div>
