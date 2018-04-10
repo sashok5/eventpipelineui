@@ -1,14 +1,13 @@
 <% if signed_in? %>
   <div class="row">
-   Hello, <%= current_user.name %>!  You might be interested in these events based on your interests:
+   Hello, <%= current_user.name %>!  Recommended events for you
   </div>
   <br>
-
 
   <div class="row">
     <div class="col-xs-12 col-sm-offset-2 col-sm-8">
       <ul class="event-list">
-        <%= render @events_for_you %>
+        <%= render @recommended_events %>
       </ul>
     </div>
   </div>
@@ -39,12 +38,9 @@
   </div>
 
   <br>
-
   <section>
-    <h2 style="text-align:left;">Here are some upcoming events that you might like!</h2>
-    <%= render 'shared/upcoming_events' %>
-    <%= link_to "View all upcoming events.", "events" %>
-
+    <h2 style="text-align:left;">Popular events</h2>
+    <%= render 'shared/popular_events' %>
   </section>
 
 <% end %>

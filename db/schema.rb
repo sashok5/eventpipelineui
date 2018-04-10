@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408041741) do
+ActiveRecord::Schema.define(version: 20180410020219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,18 @@ ActiveRecord::Schema.define(version: 20180408041741) do
     t.time "event_start_time"
     t.string "snippet_image"
     t.bigint "category_id"
+  end
+
+  create_table "popular", primary_key: "event_id", force: :cascade do |t|
+    t.integer "num_of_attending"
+    t.integer "num_of_clicks"
+    t.index ["event_id"], name: "index_popular_on_event_id"
+  end
+
+  create_table "recommended", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.integer "rank"
   end
 
   create_table "relationships", force: :cascade do |t|
