@@ -14,6 +14,7 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'will_paginate'
 gem 'city-state'
+gem 'geocoder'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

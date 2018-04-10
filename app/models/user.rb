@@ -30,16 +30,13 @@ class User < ActiveRecord::Base
   end
 
   def feed
-
-
-     ActiveRecord::Base.connection.exec_query("SELECT u.name, a.created_at, e.title, e.event_id FROM
+    ActiveRecord::Base.connection.exec_query("SELECT u.name, a.created_at, e.title, e.event_id FROM
                           attendances a
                             join events e on e.event_id = a.event_id
                             join relationships r on r.followed_id = a.user_id
                             join users u on u.user_id = r.followed_id
                             WHERE r.follower_id = #{self.id} and a.created_at > current_date
                              order by a.created_at DESC")
-
   end
 
 
@@ -59,6 +56,9 @@ class User < ActiveRecord::Base
     attendances.find_by(event_id: event.id)
   end
 
+  def nearby_events
+    Event.near([city,state].join(', '))
+  end
 
   private
 

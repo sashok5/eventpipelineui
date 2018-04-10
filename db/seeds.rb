@@ -75,25 +75,28 @@ EventCategory.create(name: 'Writing') #20
 
 User.create(
         name: 'Alex',
+        city: 'New York',
+        state: 'NY',
         email: 'alex@alex.com',
         password: 'test'
-        
 )
 
 
 User.create(
     name: 'Sai',
+    city: 'Stamford',
+    state: 'CT',
     email: 'sai@sai.com',
     password: 'test'
-
 )
 
 
 User.create(
     name: 'Alina',
+    city: 'Brooklyn',
+    state: 'NY',
     email: 'alina@alina.com',
     password: 'test'
-
 )
 
 Event.create(event_host: "Google",
