@@ -4,28 +4,25 @@
 
 <% if current_user?(@user) %>
 
-
   <h3>Today's Feed</h3>
-    <% @user.feed.each do |feed| %>
-      <div class="row" style="width:600px;">
+  <% @user.feed.each do |feed| %>
+    <div class="row" style="width:600px;">
 
-        <div class="col-lg-1" style="font-size:x-small">
+      <div class="col-lg-1" style="font-size:x-small">
         <%= time(DateTime.parse(feed['created_at']))  %>
       </div>
 
-  <div class="col-lg-11">
-    <%=feed['name'] %> is attending <strong><%= link_to feed['title'],  event_path(options={id: feed['event_id']}) %> </strong>
-
-  </div>
-
+      <div class="col-lg-11">
+        <%=feed['name'] %> is attending <strong><%= link_to feed['title'],  event_path(options={id: feed['event_id']}) %> </strong>
       </div>
+    </div>
 
   <% end %>
 
   <hr>
 
   <div class="row">
-      <aside class="span4">
+    <aside class="span4">
 
 
       <h3>Please update your interests</h3>
@@ -43,10 +40,10 @@
         <div class="form-group">
           <%= f.submit class: "btn btn-large btn-primary" %>
         </div>
-          </aside>
+        </aside>
       <% end %>
-    </div>
-  <% else %>
+      </div>
+<% else %>
 
   <div class="row">
     <aside class="span4">
@@ -57,9 +54,10 @@
 
       <ul>
         <% @user.tags.each do |tag| %>
-        <li><%= tag.name %></li>
+          <li><%= tag.name %></li>
         <% end %>
       </ul>
 
-      </div>
+    </aside>
+  </div>
 <% end %>

@@ -3,28 +3,28 @@
   <div class="col-md-6 text-center">
     <span class="float-md-left">
       <aside class="span4">
-    <section>
-      <h1>
-<a href="<%= user_path(@user) %>">
-  <%= gravatar_for @user, size: 50 %>
-</a>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
+        <section>
+          <h1>
+            <a href="<%= user_path(@user) %>">
+              <%= gravatar_for @user, size: 50 %>
+            </a>
+            <%= @user.name %>
+          </h1>
+        </section>
+        <section>
+          <%= render 'shared/stats' %>
+        </section>
+      </aside>
     </span>
   </div>
   <% if current_user?(@user) %>
 
-<div class="col-md-6 text-center">
+    <div class="col-md-6 text-center">
     <span class="float-md-right">
         <%= link_to "Create a new event!", newevent_path,
                     class: "btn btn-large btn-primary" %>
     </span>
-  </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
 <hr>
