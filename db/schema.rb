@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213021620) do
+ActiveRecord::Schema.define(version: 20180408041741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20171213021620) do
     t.index ["event_id", "user_id"], name: "index_attendances_on_event_id_and_user_id", unique: true
     t.index ["event_id"], name: "index_attendances_on_event_id"
     t.index ["user_id"], name: "index_attendances_on_user_id"
+  end
+
+  create_table "event_categories", primary_key: "category_id", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_event_categories_on_name", unique: true
   end
 
   create_table "event_posts", force: :cascade do |t|
@@ -46,6 +53,13 @@ ActiveRecord::Schema.define(version: 20171213021620) do
     t.index ["tag_id"], name: "index_event_tags_on_tag_id"
   end
 
+  create_table "event_views", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", primary_key: "event_id", force: :cascade do |t|
     t.string "event_host"
     t.string "title"
@@ -62,6 +76,7 @@ ActiveRecord::Schema.define(version: 20171213021620) do
     t.date "event_date"
     t.time "event_start_time"
     t.string "snippet_image"
+    t.bigint "category_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -79,6 +94,7 @@ ActiveRecord::Schema.define(version: 20171213021620) do
     t.integer "popularity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "user_tags", force: :cascade do |t|
@@ -109,6 +125,9 @@ ActiveRecord::Schema.define(version: 20171213021620) do
   add_foreign_key "event_posts", "users", primary_key: "user_id"
   add_foreign_key "event_tags", "events", primary_key: "event_id"
   add_foreign_key "event_tags", "tags", primary_key: "tag_id"
+  add_foreign_key "event_views", "events", primary_key: "event_id"
+  add_foreign_key "event_views", "users", primary_key: "user_id"
+  add_foreign_key "events", "event_categories", column: "category_id", primary_key: "category_id"
   add_foreign_key "events", "users", column: "created_by_user_id", primary_key: "user_id"
   add_foreign_key "user_tags", "tags", primary_key: "tag_id"
   add_foreign_key "user_tags", "users", primary_key: "user_id"

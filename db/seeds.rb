@@ -28,17 +28,73 @@ Tag.create(name: 'Programming', popularity: 1)
 Tag.create(name: 'Start-ups', popularity: 1)
 Tag.create(name: 'Writing', popularity: 1)
 =end
-Event.create(event_host: "Google",
-             title: "Women in Tech",
-             desc: "Weekly lightening talks from prominent women in tech.",
-             addr: "4082",
-             street: "East 34th Street",
-             city: "New York",
-             state: "NY",
-             zip: "11102",
-             created_by_user_id: 2,
-             event_date: "2018-01-12",
-             event_start_time: "19:00")
+
+# populate interests
+Tag.create(name: 'Comedy', popularity: 1)
+Tag.create(name: 'Foreign Languages', popularity: 1)
+Tag.create(name: 'Travel', popularity: 1)
+Tag.create(name: 'Movies', popularity: 1)
+Tag.create(name: 'Food', popularity: 1)
+Tag.create(name: 'Books', popularity: 1)
+Tag.create(name: 'Health & Wellness', popularity: 1)
+Tag.create(name: 'Music', popularity: 1)
+Tag.create(name: 'Art', popularity: 1)
+Tag.create(name: 'Wine Tasting', popularity: 1)
+Tag.create(name: 'Cooking', popularity: 1)
+Tag.create(name: 'Politics', popularity: 1)
+Tag.create(name: 'Women’s Empowerment', popularity: 1)
+Tag.create(name: 'Robotics', popularity: 1)
+Tag.create(name: 'Public Speaking', popularity: 1)
+Tag.create(name: 'Technology', popularity: 1)
+Tag.create(name: 'Running', popularity: 1)
+Tag.create(name: 'Programming', popularity: 1)
+Tag.create(name: 'Start-ups', popularity: 1)
+Tag.create(name: 'Writing', popularity: 1)
+
+# populate event categories
+EventCategory.create(name: 'Comedy') #1
+EventCategory.create(name: 'Foreign Languages') #2
+EventCategory.create(name: 'Travel') #3
+EventCategory.create(name: 'Movies') #4
+EventCategory.create(name: 'Food') #5
+EventCategory.create(name: 'Books') #6
+EventCategory.create(name: 'Health & Wellness') #7
+EventCategory.create(name: 'Music') #8
+EventCategory.create(name: 'Art') #9
+EventCategory.create(name: 'Wine Tasting') #10
+EventCategory.create(name: 'Cooking') #11
+EventCategory.create(name: 'Politics') #12
+EventCategory.create(name: 'Women’s Empowerment') #13
+EventCategory.create(name: 'Robotics') #14
+EventCategory.create(name: 'Public Speaking') #15
+EventCategory.create(name: 'Technology') #16
+EventCategory.create(name: 'Running') #17
+EventCategory.create(name: 'Programming') #18
+EventCategory.create(name: 'Start-ups') #19
+EventCategory.create(name: 'Writing') #20
+
+User.create(
+        name: 'Alex',
+        email: 'alex@alex.com',
+        password: 'test'
+        
+)
+
+
+User.create(
+    name: 'Sai',
+    email: 'sai@sai.com',
+    password: 'test'
+
+)
+
+
+User.create(
+    name: 'Alina',
+    email: 'alina@alina.com',
+    password: 'test'
+
+)
 
 Event.create(event_host: "Google",
              title: "Women in Tech",
@@ -48,9 +104,10 @@ Event.create(event_host: "Google",
              city: "New York",
              state: "NY",
              zip: "11102",
-             created_by_user_id: 2,
-             event_date: "2018-01-19",
-             event_start_time: "19:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-12",
+             event_start_time: "19:00",
+             category_id: 13)
 
 Event.create(event_host: "Google",
              title: "Women in Tech",
@@ -60,9 +117,23 @@ Event.create(event_host: "Google",
              city: "New York",
              state: "NY",
              zip: "11102",
-             created_by_user_id: 2,
-             event_date: "2018-01-26",
-             event_start_time: "19:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-19",
+             event_start_time: "19:00",
+             category_id: 13)
+
+Event.create(event_host: "Google",
+             title: "Women in Tech",
+             desc: "Weekly lightening talks from prominent women in tech.",
+             addr: "4082",
+             street: "East 34th Street",
+             city: "New York",
+             state: "NY",
+             zip: "11102",
+             created_by_user_id: 1,
+             event_date: "2019-01-26",
+             event_start_time: "19:00",
+             category_id: 13)
 
 Event.create(event_host: "Amazon",
              title: "Cloud of the Future",
@@ -72,9 +143,10 @@ Event.create(event_host: "Amazon",
              city: "New York",
              state: "NY",
              zip: "11128",
-             created_by_user_id: 2,
-             event_date: "2018-02-22",
-             event_start_time: "18:00")
+             created_by_user_id: 1,
+             event_date: "2019-02-22",
+             event_start_time: "18:00",
+             category_id: 18)
 
 Event.create(event_host: "Microsoft",
              title: "Lightening talks at Microsoft",
@@ -84,9 +156,10 @@ Event.create(event_host: "Microsoft",
              city: "New York",
              state: "NY",
              zip: "11003",
-             created_by_user_id: 2,
-             event_date: "2018-02-10",
-             event_start_time: "18:30")
+             created_by_user_id: 1,
+             event_date: "2019-02-10",
+             event_start_time: "18:30",
+             category_id: 18)
 
 Event.create(event_host: "Microsoft",
              title: "Lightening talks at Microsoft",
@@ -96,9 +169,10 @@ Event.create(event_host: "Microsoft",
              city: "New York",
              state: "NY",
              zip: "11003",
-             created_by_user_id: 2,
-             event_date: "2018-02-17",
-             event_start_time: "18:30")
+             created_by_user_id: 1,
+             event_date: "2019-02-17",
+             event_start_time: "18:30",
+             category_id: 18)
 
 Event.create(event_host: "Microsoft",
              title: "Lightening talks at Microsoft",
@@ -108,9 +182,10 @@ Event.create(event_host: "Microsoft",
              city: "New York",
              state: "NY",
              zip: "11003",
-             created_by_user_id: 2,
-             event_date: "2018-02-24",
-             event_start_time: "18:30")
+             created_by_user_id: 1,
+             event_date: "2019-02-24",
+             event_start_time: "18:30",
+             category_id: 18)
 
 Event.create(event_host: "Brooklyn Brewery",
              title: "Happy Hour Wine Tasting",
@@ -120,9 +195,10 @@ Event.create(event_host: "Brooklyn Brewery",
              city: "Brooklyn",
              state: "NY",
              zip: "11042",
-             created_by_user_id: 2,
-             event_date: "2018-01-03",
-             event_start_time: "16:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-03",
+             event_start_time: "16:00",
+             category_id: 10)
 
 Event.create(event_host: "Manhattan Yoga",
              title: "Yoga in the Park",
@@ -132,9 +208,10 @@ Event.create(event_host: "Manhattan Yoga",
              city: "New York",
              state: "NY",
              zip: "10001",
-             created_by_user_id: 2,
-             event_date: "2018-01-01",
-             event_start_time: "06:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-01",
+             event_start_time: "06:00",
+             category_id: 17)
 
 Event.create(event_host: "Wino",
              title: "Toastmasters at Wino",
@@ -144,9 +221,10 @@ Event.create(event_host: "Wino",
              city: "Forest Hills",
              state: "NY",
              zip: "11058",
-             created_by_user_id: 2,
-             event_date: "2018-02-01",
-             event_start_time: "19:00")
+             created_by_user_id: 1,
+             event_date: "2019-02-01",
+             event_start_time: "19:00",
+             category_id: 10)
 
 Event.create(event_host: "Manhattan Roadrunner",
              title: "Weekly morning jog",
@@ -156,9 +234,10 @@ Event.create(event_host: "Manhattan Roadrunner",
              city: "New York",
              state: "NY",
              zip: "10012",
-             created_by_user_id: 2,
-             event_date: "2018-01-12",
-             event_start_time: "05:30")
+             created_by_user_id: 1,
+             event_date: "2019-01-12",
+             event_start_time: "05:30",
+             category_id: 17)
 
 Event.create(event_host: "Manhattan Roadrunner",
              title: "Weekly morning jog",
@@ -168,9 +247,10 @@ Event.create(event_host: "Manhattan Roadrunner",
              city: "New York",
              state: "NY",
              zip: "10012",
-             created_by_user_id: 2,
-             event_date: "2018-01-19",
-             event_start_time: "05:30")
+             created_by_user_id: 1,
+             event_date: "2019-01-19",
+             event_start_time: "05:30",
+             category_id: 17)
 
 Event.create(event_host: "Manhattan Roadrunner",
              title: "Weekly morning jog",
@@ -180,9 +260,10 @@ Event.create(event_host: "Manhattan Roadrunner",
              city: "New York",
              state: "NY",
              zip: "10012",
-             created_by_user_id: 2,
-             event_date: "2018-01-26",
-             event_start_time: "05:30")
+             created_by_user_id: 1,
+             event_date: "2019-01-26",
+             event_start_time: "05:30",
+             category_id: 17)
 
 Event.create(event_host: "Queens Robotics Club",
              title: "Weekend Robot Group-Up",
@@ -192,9 +273,10 @@ Event.create(event_host: "Queens Robotics Club",
              city: "LIC",
              state: "NY",
              zip: "11103",
-             created_by_user_id: 2,
-             event_date: "2018-03-03",
-             event_start_time: "12:00")
+             created_by_user_id: 1,
+             event_date: "2019-03-03",
+             event_start_time: "12:00",
+             category_id: 18)
 
 Event.create(event_host: "Queens Robotics Club",
              title: "Weekend Robot Group-Up",
@@ -204,9 +286,10 @@ Event.create(event_host: "Queens Robotics Club",
              city: "LIC",
              state: "NY",
              zip: "11103",
-             created_by_user_id: 2,
-             event_date: "2018-03-10",
-             event_start_time: "12:00")
+             created_by_user_id: 1,
+             event_date: "2019-03-10",
+             event_start_time: "12:00",
+             category_id: 18)
 
 Event.create(event_host: "Queens Robotics Club",
              title: "Weekend Robot Group-Up",
@@ -216,9 +299,10 @@ Event.create(event_host: "Queens Robotics Club",
              city: "LIC",
              state: "NY",
              zip: "11103",
-             created_by_user_id: 2,
-             event_date: "2018-03-17",
-             event_start_time: "12:00")
+             created_by_user_id: 1,
+             event_date: "2019-03-17",
+             event_start_time: "12:00",
+             category_id: 18)
 
 Event.create(event_host: "NY Comics",
              title: "Joke Writting Workshop",
@@ -228,9 +312,10 @@ Event.create(event_host: "NY Comics",
              city: "Brooklyn",
              state: "NY",
              zip: "10945",
-             created_by_user_id: 2,
-             event_date: "2018-02-01",
-             event_start_time: "19:00")
+             created_by_user_id: 1,
+             event_date: "2019-02-01",
+             event_start_time: "19:00",
+             category_id: 17)
 
 Event.create(event_host: "Mama's Bakery",
              title: "Cupcake Workshop",
@@ -240,9 +325,10 @@ Event.create(event_host: "Mama's Bakery",
              city: "Staten Island",
              state: "NY",
              zip: "10980",
-             created_by_user_id: 2,
+             created_by_user_id: 1,
              event_date: "2017-12-18",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 5)
 
 Event.create(event_host: "Mama's Bakery",
              title: "Kid's Gingerbread House Workshop",
@@ -252,9 +338,10 @@ Event.create(event_host: "Mama's Bakery",
              city: "Staten Island",
              state: "NY",
              zip: "10980",
-             created_by_user_id: 2,
+             created_by_user_id: 1,
              event_date: "2017-12-16",
-             event_start_time: "14:00")
+             event_start_time: "14:00",
+             category_id: 5)
 
 Event.create(event_host: "Queens Action Committee",
              title: "Weekly Community Meeting",
@@ -264,9 +351,10 @@ Event.create(event_host: "Queens Action Committee",
              city: "Elmhurst",
              state: "NY",
              zip: "10379",
-             created_by_user_id: 2,
-             event_date: "2018-01-06",
-             event_start_time: "18:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-06",
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Queens Action Committee",
              title: "Weekly Community Meeting",
@@ -276,9 +364,10 @@ Event.create(event_host: "Queens Action Committee",
              city: "Elmhurst",
              state: "NY",
              zip: "10379",
-             created_by_user_id: 2,
-             event_date: "2018-01-13",
-             event_start_time: "18:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-13",
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Queens Action Committee",
              title: "Weekly Community Meeting",
@@ -288,9 +377,10 @@ Event.create(event_host: "Queens Action Committee",
              city: "Elmhurst",
              state: "NY",
              zip: "10379",
-             created_by_user_id: 2,
-             event_date: "2018-01-20",
-             event_start_time: "18:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-20",
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Brooklyn Movie Lovers",
              title: "Movie Night",
@@ -300,9 +390,10 @@ Event.create(event_host: "Brooklyn Movie Lovers",
              city: "Brooklyn",
              state: "NY",
              zip: "10409",
-             created_by_user_id: 2,
-             event_date: "2018-01-05",
-             event_start_time: "18:00")
+             created_by_user_id: 1,
+             event_date: "2019-01-05",
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Piazza Pizza",
              title: "Pizza Making Class",
@@ -312,9 +403,10 @@ Event.create(event_host: "Piazza Pizza",
              city: "Bronx",
              state: "NY",
              zip: "10209",
-             created_by_user_id: 2,
-             event_date: "2018-02-17",
-             event_start_time: "14:00")
+             created_by_user_id: 1,
+             event_date: "2019-02-17",
+             event_start_time: "14:00",
+             category_id: 5)
 
 Event.create(event_host: "American Bar and Grill",
              title: "Sample Tuesday",
@@ -324,9 +416,23 @@ Event.create(event_host: "American Bar and Grill",
              city: "New York",
              state: "NY",
              zip: "10092",
-             created_by_user_id: 2,
+             created_by_user_id: 1,
              event_date: "2017-12-12",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 5)
+
+Event.create(event_host: "Bronx Book Club",
+             title: "Weekly Book Club Meeting",
+             desc: "Come discuss the latest bestsellers!",
+             addr: "7029",
+             street: "54th street",
+             city: "Bronx",
+             state: "NY",
+             zip: "18005",
+             created_by_user_id: 1,
+             event_date: "2019-01-10",
+             event_start_time: "18:30",
+             category_id: 17)
 
 Event.create(event_host: "Bronx Book Club",
              title: "Weekly Book Club Meeting",
@@ -337,8 +443,9 @@ Event.create(event_host: "Bronx Book Club",
              state: "NY",
              zip: "18005",
              created_by_user_id: 1,
-             event_date: "2018-01-10",
-             event_start_time: "18:30")
+             event_date: "2019-01-17",
+             event_start_time: "18:30",
+             category_id: 17)
 
 Event.create(event_host: "Bronx Book Club",
              title: "Weekly Book Club Meeting",
@@ -349,20 +456,9 @@ Event.create(event_host: "Bronx Book Club",
              state: "NY",
              zip: "18005",
              created_by_user_id: 1,
-             event_date: "2018-01-17",
-             event_start_time: "18:30")
-
-Event.create(event_host: "Bronx Book Club",
-             title: "Weekly Book Club Meeting",
-             desc: "Come discuss the letest bestsellers!",
-             addr: "7029",
-             street: "54th street",
-             city: "Bronx",
-             state: "NY",
-             zip: "18005",
-             created_by_user_id: 1,
-             event_date: "2018-01-24",
-             event_start_time: "18:30")
+             event_date: "2019-01-24",
+             event_start_time: "18:30",
+             category_id: 17)
 
 Event.create(event_host: "Art & Technology",
              title: "Art & Tech Group-Up",
@@ -373,8 +469,9 @@ Event.create(event_host: "Art & Technology",
              state: "NY",
              zip: "10096",
              created_by_user_id: 1,
-             event_date: "2018-02-08",
-             event_start_time: "18:00")
+             event_date: "2019-02-08",
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "New York Comedy Club",
              title: "Open Mic Night",
@@ -386,7 +483,8 @@ Event.create(event_host: "New York Comedy Club",
              zip: "11908",
              created_by_user_id: 1,
              event_date: "2018-02-17",
-             event_start_time: "20:00")
+             event_start_time: "20:00",
+             category_id: 17)
 
 Event.create(event_host: "New York Toastmasters",
              title: "Weekly Group-Up",
@@ -398,7 +496,8 @@ Event.create(event_host: "New York Toastmasters",
              zip: "10090",
              created_by_user_id: 1,
              event_date: "2017-12-19",
-             event_start_time: "19:00")
+             event_start_time: "19:00",
+             category_id: 17)
 
 Event.create(event_host: "New York Toastmasters",
              title: "Weekly Group-Up",
@@ -408,9 +507,10 @@ Event.create(event_host: "New York Toastmasters",
              city: "New York",
              state: "NY",
              zip: "10090",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2018-01-02",
-             event_start_time: "19:00")
+             event_start_time: "19:00",
+             category_id: 17)
 
 Event.create(event_host: "Potter's Corner",
              title: "Valentine's Day Pottery Class",
@@ -420,9 +520,10 @@ Event.create(event_host: "Potter's Corner",
              city: "Brooklyn",
              state: "NY",
              zip: "10876",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2018-02-14",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "American Bar and Grill",
              title: "Karaoke Night",
@@ -432,9 +533,10 @@ Event.create(event_host: "American Bar and Grill",
              city: "New York",
              state: "NY",
              zip: "10092",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2018-02-15",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 5)
 
 Event.create(event_host: "NY Community Board",
              title: "Holiday Concert",
@@ -444,9 +546,10 @@ Event.create(event_host: "NY Community Board",
              city: "Queens",
              state: "NY",
              zip: "11372",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-12-20",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Queens Theatre",
              title: "Horror Movie Night",
@@ -456,9 +559,10 @@ Event.create(event_host: "Queens Theatre",
              city: "LIC",
              state: "NY",
              zip: "11103",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-03-14",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Travel Buddies Group-Up",
              title: "Weekly Group-Up",
@@ -468,9 +572,10 @@ Event.create(event_host: "Travel Buddies Group-Up",
              city: "New York",
              state: "NY",
              zip: "11003",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-01-16",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Travel Buddies Group-Up",
              title: "Weekly Group-Up",
@@ -480,9 +585,10 @@ Event.create(event_host: "Travel Buddies Group-Up",
              city: "New York",
              state: "NY",
              zip: "11003",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-01-23",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Travel Buddies Group-Up",
              title: "Weekly Group-Up",
@@ -492,9 +598,10 @@ Event.create(event_host: "Travel Buddies Group-Up",
              city: "New York",
              state: "NY",
              zip: "11003",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-01-30",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Spanish Language Learning Group-Up",
              title: "Weekly Group-Up",
@@ -504,9 +611,10 @@ Event.create(event_host: "Spanish Language Learning Group-Up",
              city: "New York",
              state: "NY",
              zip: "10946",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-01-31",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "French Language Learning Group-Up",
              title: "Weekly Group-Up",
@@ -516,9 +624,10 @@ Event.create(event_host: "French Language Learning Group-Up",
              city: "New York",
              state: "NY",
              zip: "10916",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-01-07",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Japanese Language Learning Group-Up",
              title: "Weekly Group-Up",
@@ -528,9 +637,10 @@ Event.create(event_host: "Japanese Language Learning Group-Up",
              city: "Brooklyn",
              state: "NY",
              zip: "10109",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-03-03",
-             event_start_time: "18:00")
+             event_start_time: "18:00",
+             category_id: 17)
 
 Event.create(event_host: "Learn Programming",
              title: "Programming Beginner's Group",
@@ -540,9 +650,10 @@ Event.create(event_host: "Learn Programming",
              city: "New York",
              state: "NY",
              zip: "10009",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-02-09",
-             event_start_time: "17:00")
+             event_start_time: "17:00",
+             category_id: 18)
 
 Event.create(event_host: "Learn Programming",
              title: "Intermediate Programming Group",
@@ -552,9 +663,10 @@ Event.create(event_host: "Learn Programming",
              city: "New York",
              state: "NY",
              zip: "10009",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-02-10",
-             event_start_time: "17:00")
+             event_start_time: "17:00",
+             category_id: 18)
 
 Event.create(event_host: "New York Start-Ups",
              title: "Start-Up Queens",
@@ -564,9 +676,10 @@ Event.create(event_host: "New York Start-Ups",
              city: "Queens",
              state: "NY",
              zip: "10987",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-03-05",
-             event_start_time: "17:30")
+             event_start_time: "17:30",
+             category_id: 17)
 
 Event.create(event_host: "New York Start-Ups",
              title: "Start-Up Staten Island",
@@ -576,9 +689,10 @@ Event.create(event_host: "New York Start-Ups",
              city: "Staten Island",
              state: "NY",
              zip: "10901",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-03-01",
-             event_start_time: "17:30")
+             event_start_time: "17:30",
+             category_id: 17)
 
 
 Event.create(event_host: "New York Start-Ups",
@@ -589,6 +703,104 @@ Event.create(event_host: "New York Start-Ups",
              city: "Brooklyn",
              state: "NY",
              zip: "10987",
-             created_by_user_id: 5,
+             created_by_user_id: 1,
              event_date: "2017-02-05",
-             event_start_time: "17:30")
+             event_start_time: "17:30",
+             category_id: 17)
+
+
+Attendance.create(
+    user_id: 1,
+    event_id: 1,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 12,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 3,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 4,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 10,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 2,
+    event_id: 1,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 2,
+    event_id: 3,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 2,
+    event_id: 4,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 3,
+    event_id: 3,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 14,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 15,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 39,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 40,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 1,
+    event_id: 41,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 2,
+    event_id: 41,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 2,
+    event_id: 42,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 2,
+    event_id: 43,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 3,
+    event_id: 43,
+    RSVP_Status: 1
+)
+Attendance.create(
+    user_id: 3,
+    event_id: 44,
+    RSVP_Status: 1
+)

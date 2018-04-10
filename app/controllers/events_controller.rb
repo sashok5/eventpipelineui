@@ -17,6 +17,8 @@ class EventsController < ApplicationController
     @attending = User.joins(:attendances).where('attendances.event_id'=> params[:id])
     if signed_in?
       @attendance = @event.attendances.find_by(:user_id=> current_user.id)
+      # create a click entry
+      EventView.save_click(@event, current_user)
     end
 
   end
