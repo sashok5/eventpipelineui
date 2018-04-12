@@ -11,13 +11,6 @@
       </ul>
     </div>
   </div>
-
-  <%= link_to "View all upcoming events.", "events" %>
-
-  <div class=" text-center">
-    <%= link_to "Create a new event!", newevent_path, class: "btn btn-large btn-primary" %>
-  </div>
-
 <% else %>
   <div class="hero-unit">
     <h1>Welcome to Group Up</h1>
@@ -30,14 +23,20 @@
       <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
     </div>
   </div>
-
-  <br>
-  <section>
-    <h2 style="text-align:left;">Popular events</h2>
-    <%= render 'shared/popular_events' %>
-  </section>
-
 <% end %>
+
+<br>
+<section>
+  <h2 style="text-align:left;">Popular events</h2>
+  <%= render 'shared/popular_events' %>
+</section>
+
+<div>
+  <h2 style="text-align:left;">Upcoming events</h2>
+  <div class="heading-break"></div>
+  <%= render 'shared/upcoming_events' %>
+</div>
+<%= link_to "View all upcoming events.", "events" %>
 
 <h1>Find events by interest</h1>
 <div class="row">

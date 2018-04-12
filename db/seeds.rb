@@ -73,31 +73,19 @@ EventCategory.create(name: 'Programming') #18
 EventCategory.create(name: 'Start-ups') #19
 EventCategory.create(name: 'Writing') #20
 
-User.create(
-        name: 'Alex',
-        city: 'New York',
-        state: 'NY',
-        email: 'alex@alex.com',
+
+# Create x number users
+def create_users(number)
+  1.upto(number) do |n|
+    User.create(
+        name: "test#{n}",
+        email: "test#{n}@test.com",
         password: 'test'
-)
+    )
+  end
+end
 
-
-User.create(
-    name: 'Sai',
-    city: 'Stamford',
-    state: 'CT',
-    email: 'sai@sai.com',
-    password: 'test'
-)
-
-
-User.create(
-    name: 'Alina',
-    city: 'Brooklyn',
-    state: 'NY',
-    email: 'alina@alina.com',
-    password: 'test'
-)
+create_users(100)
 
 Event.create(event_host: "Google",
              title: "Women in Tech",
@@ -711,99 +699,25 @@ Event.create(event_host: "New York Start-Ups",
              event_start_time: "17:30",
              category_id: 17)
 
+def create_attendances(user_count, event_count)
+  1.upto(user_count) do |user_id|
+    Attendance.create(
+       user_id: user_id,
+       event_id: rand(1..event_count),
+       RSVP_Status: 1
+    )
+  end
+end
 
-Attendance.create(
-    user_id: 1,
-    event_id: 1,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 12,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 3,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 4,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 10,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 2,
-    event_id: 1,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 2,
-    event_id: 3,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 2,
-    event_id: 4,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 3,
-    event_id: 3,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 14,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 15,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 39,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 40,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 1,
-    event_id: 41,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 2,
-    event_id: 41,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 2,
-    event_id: 42,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 2,
-    event_id: 43,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 3,
-    event_id: 43,
-    RSVP_Status: 1
-)
-Attendance.create(
-    user_id: 3,
-    event_id: 44,
-    RSVP_Status: 1
-)
+create_attendances(User.count, Event.count)
+
+def create_event_views(user_count, event_count)
+  1.upto(user_count) do |user_id|
+    EventView.create(
+        user_id: user_id,
+        event_id: rand(1..event_count)
+    )
+  end
+end
+
+create_event_views(User.count, Event.count)
