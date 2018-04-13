@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @recommended_events = Recommended.events if signed_in?
+    @recommended_events = current_user.recommended_events if signed_in?
     @popular_events = Popular.events(20)
     @upcoming_events = Event.upcoming.limit(2)
   end

@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     Event.near([city,state].join(', '))
   end
 
+  def recommended_events
+    Recommended.where(user_id: id).events
+  end
+
   private
 
     def create_remember_token
