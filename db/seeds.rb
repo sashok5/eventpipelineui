@@ -85,7 +85,7 @@ def create_users(number)
   end
 end
 
-create_users(100)
+create_users(200)
 
 Event.create(event_host: "Google",
              title: "Women in Tech",
@@ -202,7 +202,7 @@ Event.create(event_host: "Manhattan Yoga",
              created_by_user_id: 1,
              event_date: "2019-01-01",
              event_start_time: "06:00",
-             category_id: 17)
+             category_id: 7)
 
 Event.create(event_host: "Wino",
              title: "Toastmasters at Wino",
@@ -267,7 +267,7 @@ Event.create(event_host: "Queens Robotics Club",
              created_by_user_id: 1,
              event_date: "2019-03-03",
              event_start_time: "12:00",
-             category_id: 18)
+             category_id: 14)
 
 Event.create(event_host: "Queens Robotics Club",
              title: "Weekend Robot Group-Up",
@@ -280,7 +280,7 @@ Event.create(event_host: "Queens Robotics Club",
              created_by_user_id: 1,
              event_date: "2019-03-10",
              event_start_time: "12:00",
-             category_id: 18)
+             category_id: 14)
 
 Event.create(event_host: "Queens Robotics Club",
              title: "Weekend Robot Group-Up",
@@ -293,10 +293,10 @@ Event.create(event_host: "Queens Robotics Club",
              created_by_user_id: 1,
              event_date: "2019-03-17",
              event_start_time: "12:00",
-             category_id: 18)
+             category_id: 14)
 
 Event.create(event_host: "NY Comics",
-             title: "Joke Writting Workshop",
+             title: "Joke Writing Workshop",
              desc: "Test out new material with seasoned pros.",
              addr: "3090",
              street: "8th Avenue",
@@ -306,7 +306,7 @@ Event.create(event_host: "NY Comics",
              created_by_user_id: 1,
              event_date: "2019-02-01",
              event_start_time: "19:00",
-             category_id: 17)
+             category_id: 20)
 
 Event.create(event_host: "Mama's Bakery",
              title: "Cupcake Workshop",
@@ -345,7 +345,7 @@ Event.create(event_host: "Queens Action Committee",
              created_by_user_id: 1,
              event_date: "2019-01-06",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 12)
 
 Event.create(event_host: "Queens Action Committee",
              title: "Weekly Community Meeting",
@@ -358,7 +358,7 @@ Event.create(event_host: "Queens Action Committee",
              created_by_user_id: 1,
              event_date: "2019-01-13",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 12)
 
 Event.create(event_host: "Queens Action Committee",
              title: "Weekly Community Meeting",
@@ -371,7 +371,7 @@ Event.create(event_host: "Queens Action Committee",
              created_by_user_id: 1,
              event_date: "2019-01-20",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 12)
 
 Event.create(event_host: "Brooklyn Movie Lovers",
              title: "Movie Night",
@@ -384,7 +384,7 @@ Event.create(event_host: "Brooklyn Movie Lovers",
              created_by_user_id: 1,
              event_date: "2019-01-05",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 4)
 
 Event.create(event_host: "Piazza Pizza",
              title: "Pizza Making Class",
@@ -423,7 +423,7 @@ Event.create(event_host: "Bronx Book Club",
              created_by_user_id: 1,
              event_date: "2019-01-10",
              event_start_time: "18:30",
-             category_id: 17)
+             category_id: 6)
 
 Event.create(event_host: "Bronx Book Club",
              title: "Weekly Book Club Meeting",
@@ -436,7 +436,7 @@ Event.create(event_host: "Bronx Book Club",
              created_by_user_id: 1,
              event_date: "2019-01-17",
              event_start_time: "18:30",
-             category_id: 17)
+             category_id: 6)
 
 Event.create(event_host: "Bronx Book Club",
              title: "Weekly Book Club Meeting",
@@ -449,7 +449,7 @@ Event.create(event_host: "Bronx Book Club",
              created_by_user_id: 1,
              event_date: "2019-01-24",
              event_start_time: "18:30",
-             category_id: 17)
+             category_id: 6)
 
 Event.create(event_host: "Art & Technology",
              title: "Art & Tech Group-Up",
@@ -462,7 +462,7 @@ Event.create(event_host: "Art & Technology",
              created_by_user_id: 1,
              event_date: "2019-02-08",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 16)
 
 Event.create(event_host: "New York Comedy Club",
              title: "Open Mic Night",
@@ -475,7 +475,7 @@ Event.create(event_host: "New York Comedy Club",
              created_by_user_id: 1,
              event_date: "2018-02-17",
              event_start_time: "20:00",
-             category_id: 17)
+             category_id: 1)
 
 Event.create(event_host: "New York Toastmasters",
              title: "Weekly Group-Up",
@@ -488,7 +488,7 @@ Event.create(event_host: "New York Toastmasters",
              created_by_user_id: 1,
              event_date: "2017-12-19",
              event_start_time: "19:00",
-             category_id: 17)
+             category_id: 15)
 
 Event.create(event_host: "New York Toastmasters",
              title: "Weekly Group-Up",
@@ -501,7 +501,7 @@ Event.create(event_host: "New York Toastmasters",
              created_by_user_id: 1,
              event_date: "2018-01-02",
              event_start_time: "19:00",
-             category_id: 17)
+             category_id: 15)
 
 Event.create(event_host: "Potter's Corner",
              title: "Valentine's Day Pottery Class",
@@ -514,7 +514,7 @@ Event.create(event_host: "Potter's Corner",
              created_by_user_id: 1,
              event_date: "2018-02-14",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 9)
 
 Event.create(event_host: "American Bar and Grill",
              title: "Karaoke Night",
@@ -540,7 +540,7 @@ Event.create(event_host: "NY Community Board",
              created_by_user_id: 1,
              event_date: "2017-12-20",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 12)
 
 Event.create(event_host: "Queens Theatre",
              title: "Horror Movie Night",
@@ -553,7 +553,7 @@ Event.create(event_host: "Queens Theatre",
              created_by_user_id: 1,
              event_date: "2017-03-14",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 4)
 
 Event.create(event_host: "Travel Buddies Group-Up",
              title: "Weekly Group-Up",
@@ -566,7 +566,7 @@ Event.create(event_host: "Travel Buddies Group-Up",
              created_by_user_id: 1,
              event_date: "2017-01-16",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 3)
 
 Event.create(event_host: "Travel Buddies Group-Up",
              title: "Weekly Group-Up",
@@ -579,7 +579,7 @@ Event.create(event_host: "Travel Buddies Group-Up",
              created_by_user_id: 1,
              event_date: "2017-01-23",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 3)
 
 Event.create(event_host: "Travel Buddies Group-Up",
              title: "Weekly Group-Up",
@@ -592,7 +592,7 @@ Event.create(event_host: "Travel Buddies Group-Up",
              created_by_user_id: 1,
              event_date: "2017-01-30",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 3)
 
 Event.create(event_host: "Spanish Language Learning Group-Up",
              title: "Weekly Group-Up",
@@ -605,7 +605,7 @@ Event.create(event_host: "Spanish Language Learning Group-Up",
              created_by_user_id: 1,
              event_date: "2017-01-31",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 2)
 
 Event.create(event_host: "French Language Learning Group-Up",
              title: "Weekly Group-Up",
@@ -618,7 +618,7 @@ Event.create(event_host: "French Language Learning Group-Up",
              created_by_user_id: 1,
              event_date: "2017-01-07",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 2)
 
 Event.create(event_host: "Japanese Language Learning Group-Up",
              title: "Weekly Group-Up",
@@ -631,7 +631,7 @@ Event.create(event_host: "Japanese Language Learning Group-Up",
              created_by_user_id: 1,
              event_date: "2017-03-03",
              event_start_time: "18:00",
-             category_id: 17)
+             category_id: 2)
 
 Event.create(event_host: "Learn Programming",
              title: "Programming Beginner's Group",
@@ -670,7 +670,7 @@ Event.create(event_host: "New York Start-Ups",
              created_by_user_id: 1,
              event_date: "2017-03-05",
              event_start_time: "17:30",
-             category_id: 17)
+             category_id: 19)
 
 Event.create(event_host: "New York Start-Ups",
              title: "Start-Up Staten Island",
@@ -683,7 +683,7 @@ Event.create(event_host: "New York Start-Ups",
              created_by_user_id: 1,
              event_date: "2017-03-01",
              event_start_time: "17:30",
-             category_id: 17)
+             category_id: 19)
 
 
 Event.create(event_host: "New York Start-Ups",
@@ -697,7 +697,7 @@ Event.create(event_host: "New York Start-Ups",
              created_by_user_id: 1,
              event_date: "2017-02-05",
              event_start_time: "17:30",
-             category_id: 17)
+             category_id: 19)
 
 def create_attendances(user_count, event_count)
   1.upto(user_count) do |user_id|
