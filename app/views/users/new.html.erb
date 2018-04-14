@@ -1,39 +1,39 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<h2 class="uk-heading-divider">Sign up</h2>
 
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <div class="form-group">
+  <div class='uk-margin-bottom'>
     <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control"  %>
+    <%= f.text_field :name, class: 'uk-input'  %>
   </div>
 
-  <div class="form-group">
+  <div class='uk-margin-bottom'>
     <%= f.label :city %>
-    <%= f.text_field :city, class: "form-control"  %>
+    <%= f.text_field :city, class: 'uk-input'  %>
   </div>
 
-  <div class="form-group">
+  <div class="uk-margin">
     <%= f.label :state %> <br>
-    <%= f.select :state, CS.states(:us).invert, class: "form-control"  %>
+    <%= f.select :state, CS.states(:us).invert, class: 'uk-select'  %>
   </div>
 
-  <div class="form-group">
+  <div class='uk-margin-bottom'>
     <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control"  %>
+    <%= f.text_field :email, class: 'uk-input'  %>
   </div>
 
-  <div class="form-group">
+  <div class='uk-margin-bottom'>
     <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control"  %>
+    <%= f.password_field :password, class: 'uk-input'  %>
   </div>
 
-  <div class="form-group">
+  <div class='uk-margin-bottom'>
     <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
+    <%= f.password_field :password_confirmation, class: 'uk-input' %>
   </div>
 
-  <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Create my account", class: 'uk-button uk-button-secondary teal' %>
 
 <% end %>

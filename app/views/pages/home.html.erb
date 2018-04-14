@@ -1,24 +1,23 @@
 <% if signed_in? %>
 
-  <h2 class="uk-heading-divider">Hello, <%= current_user.name %>!</h2>
+  <h2>Hello, <%= current_user.name %>!</h2>
 
   <%= render 'shared/recommended_events' %>
 
 <% else %>
-  <div class="hero-unit">
-    <h1 class="uk-heading-divider">Welcome to Group Up</h1>
+  <div class="uk-text-center">
+    <h2>Welcome to Group Up</h2>
 
-
-    <p class="lead center">
-      This is the home page for starting your own group and joining the exciting world of groups and meets.
-    </p>
+    <p>This is the home page for starting your own group and joining the exciting world of groups and meets.</p>
 
     <div class="center">
-      <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+      <%= link_to "Sign up now!", signup_path, class: 'uk-button uk-button-secondary teal' %>
     </div>
   </div>
 <% end %>
 
+<br>
+<div class="uk-heading-divider"></div>
 
 <%= render 'shared/popular_events' %>
 

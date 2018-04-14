@@ -4,7 +4,7 @@
 
 <% if current_user?(@user) %>
 
-  <h3>Today's Feed</h3>
+  <h2 class="uk-heading-divier">Today's Feed</h2>
   <% @user.feed.each do |feed| %>
     <div class="row" style="width:600px;">
 

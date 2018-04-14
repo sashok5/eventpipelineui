@@ -3,6 +3,10 @@
     height: 253px
 }
 
-.event-card {
-    background-color: #9e9e9e;
+.uk-table-hover tbody tr:hover, .uk-table-hover>tr:hover {
+    background-color: #eceff1;
+}
+
+.teal {
+    background-color: #80CBC3;
 }
