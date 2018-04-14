@@ -4,60 +4,40 @@
 
 <% if current_user?(@user) %>
 
-  <h2 class="uk-heading-divier">Today's Feed</h2>
-  <% @user.feed.each do |feed| %>
-    <div class="row" style="width:600px;">
+  <%= render 'users/feed' %>
 
-      <div class="col-lg-1" style="font-size:x-small">
-        <%= time(DateTime.parse(feed['created_at']))  %>
-      </div>
+  <div class="uk-width-1-3">
 
-      <div class="col-lg-11">
-        <%=feed['name'] %> is attending <strong><%= link_to feed['title'],  event_path(options={id: feed['event_id']}) %> </strong>
-      </div>
-    </div>
+    <h3 class="uk-heading-divider">Please update your interests</h3>
+    <%= form_for @user, url: {action: 'update_interests'}, method: 'put' do |f| %>
 
-  <% end %>
+      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |cb| %>
 
-  <hr>
-
-  <div class="row">
-    <aside class="span4">
-
-
-      <h3>Please update your interests</h3>
-      <%= form_for @user, url: {action: "update_interests"}, method: 'put' do |f| %>
-
-
-        <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |cb| %>
-
-          <div class="form-check">
-            <%= cb.label(class: "form-check-label") {cb.check_box(class: "form-check-input") + cb.text} %>
-          </div>
-
-        <% end %>
-
-        <div class="form-group">
-          <%= f.submit class: "btn btn-large btn-primary" %>
+        <div class="form-check">
+          <%= cb.label(class: 'form-check-label') {cb.check_box(class: 'uk-margin-right uk-checkbox') + cb.text} %>
         </div>
-        </aside>
+
       <% end %>
+
+      <div class="uk-margin-top">
+        <%= f.submit class: 'uk-button uk-button-secondary teal' %>
       </div>
+    <% end %>
+  </div>
 <% else %>
 
-  <div class="row">
-    <aside class="span4">
 
-      <%= render 'follow_form' if signed_in? %>
+  <%= render 'follow_form' if signed_in? %>
 
-      <h3>Users's intersts</h3>
+  <% if @user.tags.any? %>
 
-      <ul>
-        <% @user.tags.each do |tag| %>
-          <li><%= tag.name %></li>
-        <% end %>
-      </ul>
+    <h3>Users's interests</h3>
 
-    </aside>
-  </div>
+    <ul>
+      <% @user.tags.each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
 <% end %>

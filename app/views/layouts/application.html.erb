@@ -12,11 +12,13 @@
 </head>
 <body>
 <%= render 'layouts/header' %>
+
 <div class="uk-padding-large">
 
-
   <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
+    <div class="uk-card uk-text-center uk-padding-small uk-width-medium uk-margin-bottom uk-card-secondary teal uk-card-hover">
+      <%= value %>
+    </div>
   <% end %>
   <%= yield %>
 

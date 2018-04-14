@@ -1,0 +1,19 @@
+<% if @user.feed.any? %>
+  <h3 class="uk-heading-divider">Today's Feed</h3>
+  <% @user.feed.each do |feed| %>
+    <div class="uk-margin-bottom">
+
+      <div style="font-size:x-small">
+        <%= time(DateTime.parse(feed['created_at'])) %>
+      </div>
+
+      <div>
+        <%=feed['name'] %> is attending
+        <strong>
+        <%= link_to feed['title'], event_path(options={id: feed['event_id']}), class: 'uk-link-text' %>
+        </strong>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>

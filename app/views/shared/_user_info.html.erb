@@ -2,7 +2,6 @@
 <div class="row">
   <div class="col-md-6 text-center">
     <span class="float-md-left">
-      <aside class="span4">
         <section>
           <h1>
             <% if gravatar_for @user %>
@@ -10,13 +9,12 @@
                 <%= gravatar_for @user, size: 50 %>
               </a>
             <% end %>
-            <%= @user.name %>
+            <span class="uk-margin-left"><%= @user.name %></span>
           </h1>
         </section>
         <section>
           <%= render 'shared/stats' %>
         </section>
-      </aside>
     </span>
   </div>
   <% if current_user?(@user) %>

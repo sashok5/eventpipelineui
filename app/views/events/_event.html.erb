@@ -1,20 +1,20 @@
 <tr class="uk-table-link">
 
-  <td class="uk-table-link">
-    <button class="uk-button uk-button-text uk-padding-small">
-      <a class="uk-link-reset" href="<%= event_url(event)%>">View</a>
-    </button>
-  </td>
   <td>
-
-    <%= event.title %><br>
-    <time class="" datetime="<%= event.event_date %>">
+    <time datetime="<%= event.event_date %>">
       <span class="day"><%= day(event.event_date) %></span>
       <span class="month"><%= month(event.event_date)%></span>
-      <span class="year"><%= year(event.event_date) %></span>
-      <span class="time">ALL DAY</span>
+      <span class="year"><%= year(event.event_date) %></span><br>
+      <span class="time">Starts <%= time(event.event_start_time) %></span>
     </time>
   </td>
+
+  <td class="uk-table-link">
+    <button class="uk-button uk-button-text uk-padding-small">
+      <a class="uk-link-reset" href="<%= event_url(event)%>"><%= event.title %></a>
+    </button>
+  </td>
+
   <td class=""><%= event.event_host %></td>
   <td class=""><%= event.category %></td>
   <td class=""><%= event.num_attending %> attending</td>

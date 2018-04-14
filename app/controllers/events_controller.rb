@@ -22,7 +22,6 @@ class EventsController < ApplicationController
       # create a click entry
       EventView.save_click(@event, current_user)
     end
-
   end
 
  def edit
@@ -37,7 +36,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.creator = current_user
     if @event.save
-      flash[:success] = "Event created!"
+      flash[:success] = 'Event created!'
       redirect_to root_url
     else
       render action: 'new'
@@ -48,7 +47,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update_attributes(event_params)
-      flash[:success] = "Event updated!"
+      flash[:success] = 'Event updated!'
       redirect_to root_url
     else
       render action: 'edit'
@@ -65,7 +64,7 @@ class EventsController < ApplicationController
     @attendance = @event.attendances.build(:user_id => current_user.id)
 
     if @attendance.save
-      flash[:success] = "Thank you for joining even!"
+      flash[:success] = 'Thank you for joining!'
       redirect_to event_url
     else
       render action: 'attend'
@@ -76,10 +75,8 @@ class EventsController < ApplicationController
   def rsvp
     @event = Event.find(params[:id])
 
-
     if Attendance.rsvp(@event, current_user, params[:attendance][:RSVP_Status])
-
-      flash[:success] = "Thank you for RSVPing!"
+      flash[:success] = 'Thank you for RSVPing!'
       redirect_to event_url
     else
       render action: 'rsvp'

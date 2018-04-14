@@ -1,10 +1,13 @@
-<div class="uk-width-1-5@s">
+<div class="uk-width-1-5@s uk-grid-match">
   <div class="uk-card">
-    <%= image_tag event_category.image, size: 273 %>
+
+    <div class="category-div">
+      <%= image_tag event_category.image %>
+    </div>
     <p uk-margin class="uk-text-center">
 
-    <button class="uk-width-1-1 uk-button uk-button-default uk-button-large">
-      <%= link_to event_category.name, controller: "events", action: "index", interest: event_category.category_id, class: 'uk-link-reset' %>
+    <button class="uk-width-1-1 uk-button uk-button-secondary teal uk-button-large">
+      <%= link_to event_category.name, controller: "events", action: "index", interest: event_category.category_id %>
     </button>
     </p>
   </div>

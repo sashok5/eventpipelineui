@@ -5,7 +5,7 @@ module UsersHelper
     default_av = root_url  + asset_path( "avatar.png")
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     size = options[:size]
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=#{default_av}"
-    image_tag(gravatar_url, alt: user.name, class: "gravatar", size:50)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+    image_tag(gravatar_url, alt: user.name, class: "gravatar", size:50) if gravatar_url
   end
 end

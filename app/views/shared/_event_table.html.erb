@@ -1,12 +1,12 @@
-<% if @upcoming_events.any? %>
+<% if events.any? %>
 
-  <h2>Upcoming events</h2>
+  <h2 class="uk-heading-divider"><%= title %></h2>
 
   <table class="uk-table uk-table-small uk-table-middle uk-table-divider uk-table-hover">
 
     <thead class="uk-text-center">
     <tr>
-      <th class="uk-table-shrink"></th>
+      <th class="uk-table-small"></th>
       <th class="uk-text-center">Event</th>
       <th class="uk-text-center">Hosted By</th>
       <th class="uk-text-center">Category</th>
@@ -16,15 +16,8 @@
     </thead>
     <tbody class="uk-text-center">
 
-    <%= render partial: 'events/event', collection: @upcoming_events %>
+    <%= render partial: 'events/event', collection: events %>
     </tbody>
   </table>
-
-
-  <% unless @all_events %>
-    <button class="uk-button uk-button-secondary">
-      <%= link_to "View all upcoming events", "upcoming", class: 'uk-link-reset' %>
-    </button>
-  <% end %>
 
 <% end %>
