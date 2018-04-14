@@ -8,14 +8,21 @@
   </time>
   <% if !event.snippet_image.nil? %>
     <%= image_tag "eventsnippets/#{event.snippet_image}", size:100 %>
-    <% end %>
+  <% end %>
   <div class="info">
     <h2 class="title"><%= event.event_host%></h2>
     <p class="desc"><%= event.title %></p>
-    <p class="desc">
-    Interests: <% event.tags.each do |tag| %>
-      <button type="button" class="btn btn-secondary btn-sm"><%= tag.name %></button>
+    <p class="desc">Category: <%= event.category %></p>
+    <% if event.num_attending > 0 %>
+      <p class="desc">Attending: <%= event.num_attending %></p>
     <% end %>
+    <% if event.tags.length > 0 %>
+      <p class="desc">
+        Interests: <% event.tags.each do |tag| %>
+          <button type="button" class="btn btn-secondary btn-sm"><%= tag.name %></button>
+        <% end %>
+    <% end %>
+
     </p>
     <ul>
       <li style="width:30%;"><a href="<%= event_url(event)%>"><span class="fa fa-globe"></span> View Details</a></li>

@@ -1,15 +1,10 @@
 class EventsController < ApplicationController
 
   def index
-    @interest = nil
-
-    if params[:interest].nil?
-      @events = Event.upcoming
-    else
-       @events = Event.joins(:tags).where('tags.tag_id' => params[:interest]).order('event_date asc')
-      @interest = Tag.find_by_tag_id(params[:interest])
-    end
-
+    category_id = params[:interest]
+    @events = Event.upcoming unless category_id
+    @interest = EventCategory.find(category_id)
+    @events = @interest.events
   end
 
   def show

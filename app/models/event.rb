@@ -17,4 +17,13 @@ class Event < ApplicationRecord
   def full_address
     ["#{addr} #{street}", city, state, zip].compact.join(', ')
   end
+
+  def category
+    EventCategory.find(category_id).name
+  end
+
+  def num_attending
+    Attendance.where(event_id: id).count
+  end
+
 end

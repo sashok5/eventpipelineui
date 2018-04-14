@@ -1,9 +1,7 @@
 <% provide(:title, 'Events') %>
-<h1>Events</h1>
+<% if @interest %>
 
-<% if !@interest.nil? %>
-
-  <h3>Events under interest: <%= @interest.name %></h3>
+  <h4><%= @interest.name %> Events</h4>
   <hr>
 <% end %>
 
@@ -11,14 +9,6 @@
     <div class="col-xs-12 col-sm-offset-2 col-sm-8">
       <ul class="event-list">
         <%= render @events %>
-
       </ul>
     </div>
   </div>
-
-
-<h1>Find events by other interest</h1>
-<div class="row">
-
-  <%= render Tag.all %>
-</div>
