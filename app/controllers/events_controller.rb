@@ -7,6 +7,11 @@ class EventsController < ApplicationController
     @events = @interest.events
   end
 
+  def upcoming
+    @all_events = true
+    @upcoming_events = Event.upcoming
+  end
+
   def show
     @event = Event.find(params[:id])
     @attending = User.joins(:attendances).where('attendances.event_id'=> params[:id])

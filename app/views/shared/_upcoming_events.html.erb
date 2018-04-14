@@ -1,11 +1,18 @@
 <% if @upcoming_events.any? %>
 
+  <h2 style="text-align:left;">Upcoming events</h2>
+  <br>
+  <div class="heading-break"></div>
   <div class="row">
     <div class="col-xs-12 col-sm-offset-2 col-sm-8">
       <ul class="event-list">
-    <%= render partial: 'events/event', collection: @upcoming_events %>
+        <%= render partial: 'events/event', collection: @upcoming_events %>
       </ul>
     </div>
   </div>
+
+  <% unless @all_events %>
+    <%= link_to "View all upcoming events.", "upcoming" %>
+  <% end %>
 
 <% end %>

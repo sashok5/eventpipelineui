@@ -15,6 +15,7 @@ GroupUp::Application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
 
+  get '/upcoming', to: 'events#upcoming', as: :upcoming
   root to: 'pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

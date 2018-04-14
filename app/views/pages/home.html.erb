@@ -1,16 +1,10 @@
 <% if signed_in? %>
   <div class="row">
-    Hello, <%= current_user.name %>!  Recommended events for you
+    Hello, <%= current_user.name %>!
   </div>
-  <br>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-      <ul class="event-list">
-        <%= render @recommended_events %>
-      </ul>
-    </div>
-  </div>
+  <%= render 'shared/recommended_events' %>
+
 <% else %>
   <div class="hero-unit">
     <h1>Welcome to Group Up</h1>
@@ -25,20 +19,9 @@
   </div>
 <% end %>
 
-<br>
-<section>
-  <h2 style="text-align:left;">Popular events</h2>
-  <%= render 'shared/popular_events' %>
-</section>
 
-<div>
-  <h2 style="text-align:left;">Upcoming events</h2>
-  <div class="heading-break"></div>
-  <%= render 'shared/upcoming_events' %>
-</div>
-<%= link_to "View all upcoming events.", "events" %>
+<%= render 'shared/popular_events' %>
 
-<h1>Find events by interest</h1>
-<div class="row">
-  <%= render EventCategory.all %>
-</div>
+<%= render 'shared/upcoming_events' %>
+
+<%= render 'shared/categories' %>
