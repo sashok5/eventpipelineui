@@ -11,9 +11,9 @@
     </p>
     <% if signed_in? %>
 
-      <% if current_user.attending?(@event) %>
+      <% if @attendance %>
 
-        <p>You joined this even, please RSVP. Are you attending?
+        <p>You joined this event, please RSVP. Are you attending?
 
           <%= form_for @attendance, url: {action: "rsvp"}, method: 'put' do |f| %>
             Yes <%= f.radio_button :RSVP_Status, "1" %>
@@ -66,16 +66,13 @@
     <h3>Who's attending</h3>
     <hr>
     <div class="list-group">
-    <% @attending.each do |user| %>
+      <% @event.users.each do |user| %>
 
-
-<aside> <%= gravatar_for user, size: 52 %>
-  <%= link_to user.name, user %>
-</aside>
-<hr>
-    <%end%>
-
-
+        <aside> <%= gravatar_for user, size: 52 %>
+          <%= link_to user.name, user %>
+        </aside>
+        <hr>
+      <%end%>
 
     </div>
   </div>

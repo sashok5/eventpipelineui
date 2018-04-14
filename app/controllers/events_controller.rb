@@ -2,9 +2,12 @@ class EventsController < ApplicationController
 
   def index
     category_id = params[:interest]
-    @events = Event.upcoming unless category_id
-    @interest = EventCategory.find(category_id)
-    @events = @interest.events
+    if category_id
+      @interest = EventCategory.find(category_id)
+      @events = @interest.events
+    else
+      @events = Event.upcoming
+    end
   end
 
   def upcoming
@@ -14,9 +17,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @attending = User.joins(:attendances).where('attendances.event_id'=> params[:id])
     if signed_in?
-      @attendance = @event.attendances.find_by(:user_id=> current_user.id)
+      @attendance = current_user.attending?(@event)
       # create a click entry
       EventView.save_click(@event, current_user)
     end
