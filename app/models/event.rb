@@ -26,4 +26,7 @@ class Event < ApplicationRecord
     Attendance.where(event_id: id).count
   end
 
+  def attending
+  end
+
 end

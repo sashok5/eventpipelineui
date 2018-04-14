@@ -3,12 +3,8 @@
   <h2 style="text-align:left;">Upcoming events</h2>
   <br>
   <div class="heading-break"></div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-      <ul class="event-list">
-        <%= render partial: 'events/event', collection: @upcoming_events %>
-      </ul>
-    </div>
+  <div class="uk-flex uk-grid-large uk-child-width-expand@s uk-text-center" uk-grid>
+    <%= render partial: 'events/event', collection: @upcoming_events %>
   </div>
 
   <% unless @all_events %>
