@@ -21,7 +21,7 @@
   <% if event.tags.length > 0 %>
     <td class="">
       Interests: <% event.tags.each do |tag| %>
-        <button class="uk-button uk-button-default"><%= tag.name %></button>
+        <button class="uk-button uk-button-text"><%= tag.name %></button>
       <% end %>
     </td>
   <% end %>
@@ -29,7 +29,7 @@
   <td>
     <% if signed_in? %>
       <% if current_user.attending?(event) %>
-        Your RSVP Status is <strong><%= Attendance.rsvp_status(event, current_user) %></strong>
+        <%= Attendance.rsvp_status(event, current_user) %>
         <span class="glyphicon glyphicon-ok"></span>
       <% end %>
 

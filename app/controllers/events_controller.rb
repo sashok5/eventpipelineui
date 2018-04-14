@@ -35,6 +35,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.creator = current_user
+    @event.category_id = event_params['tag_ids'].reject{|t| t.empty?}.first if event_params['tag_ids'].any?
     if @event.save
       flash[:success] = 'Event created!'
       redirect_to root_url
@@ -87,14 +88,12 @@ class EventsController < ApplicationController
   private
 
     def event_params
-      params.require(:event).permit(:title, :desc, :event_host,
-                                    :event_date, :event_start_time, :snippet_image, :addr,
-                                    :street, :city, :state, :zip, tag_ids: [])
+      params.require(:event).permit(:title, :desc, :event_host, :event_date, :event_start_time,
+                                    :snippet_image, :addr, :street, :city, :state, :zip, tag_ids: [])
     end
 
   def rsvp_params
     params.permit(:RSVP_status)
-
   end
 
 end

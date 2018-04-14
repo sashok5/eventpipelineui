@@ -27,6 +27,10 @@
     text-transform: uppercase;
 }
 
+#error_explanation {
+    color: red;
+}
+
 /*.category-div {*/
     /*height: 273px;*/
     /*width: 273px;*/

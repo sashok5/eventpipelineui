@@ -1,6 +1,10 @@
 <% if events.any? %>
 
-  <h2 class="uk-heading-divider"><%= title %></h2>
+  <% if @interest %>
+    <h3 class="uk-heading-divider"><%= @interest.name %> Events</h3>
+  <% else %>
+    <h3 class="uk-heading-divider"><%= title %></h3>
+  <% end %>
 
   <table class="uk-table uk-table-small uk-table-middle uk-table-divider uk-table-hover">
 
@@ -11,7 +15,9 @@
       <th class="uk-text-center">Hosted By</th>
       <th class="uk-text-center">Category</th>
       <th></th>
-      <th></th>
+      <% if signed_in? %>
+        <th class="uk-table-shrink">RSVP</th>
+    <% end %>
     </tr>
     </thead>
     <tbody class="uk-text-center">
