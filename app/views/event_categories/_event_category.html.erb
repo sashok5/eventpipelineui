@@ -6,8 +6,8 @@
     </div>
     <p uk-margin class="uk-text-center">
 
-    <button class="uk-width-1-1 uk-button uk-button-secondary teal uk-button-large">
-      <%= link_to event_category.name, controller: "events", action: "index", interest: event_category.category_id %>
+    <button class="uk-width-1-1 uk-button uk-button-secondary teal uk-button-large uk-padding-remove">
+      <%= link_to event_category.name, { :controller => 'events', :action => 'index', interest: event_category.category_id}, class: 'uk-link-reset' %>
     </button>
     </p>
   </div>
