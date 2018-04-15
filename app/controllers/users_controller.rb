@@ -79,37 +79,34 @@ class UsersController < ApplicationController
   end
 
   def created_events
-
     @user = User.find(params[:id])
     @events = @user.created_events.paginate(page: params[:page])
 
   end
 
-  def attending_events
-
+  def past_events
     @user = User.find(params[:id])
     @events = @user.events
-
   end
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :city, :state, :password, :password_confirmation, tag_ids: [])
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :city, :state, :password, :password_confirmation, tag_ids: [])
+  end
 
   def tag_params
     params.require(:user).permit(tag_ids: [])
   end
 
-    # Before filters
+  # Before filters
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
-
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
+end

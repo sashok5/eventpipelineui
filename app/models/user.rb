@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
     Recommended.where(user_id: id).events
   end
 
+  def past_events
+    attendances.map(&:event)
+  end
+
   private
 
     def create_remember_token

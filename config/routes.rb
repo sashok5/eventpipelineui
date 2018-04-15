@@ -1,7 +1,7 @@
 GroupUp::Application.routes.draw do
   resources :users do
     member do
-      get :following, :followers, :created_events, :attending_events
+      get :following, :followers, :created_events, :past_events
       put :update_interests
     end
   end

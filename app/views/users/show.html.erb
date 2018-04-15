@@ -26,7 +26,6 @@
   </div>
 <% else %>
 
-
   <%= render 'follow_form' if signed_in? %>
 
   <% if @user.tags.any? %>
@@ -41,3 +40,5 @@
   <% end %>
 
 <% end %>
+
+<%= render 'shared/event_table', events: @user.past_events, title: 'Past Events'  %>
