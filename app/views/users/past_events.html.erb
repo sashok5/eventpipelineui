@@ -1,14 +1,5 @@
-<% provide(:title, 'Attending events') %>
+<% provide(:title, 'Past events') %>
 
 <%= render 'shared/user_info' %>
 
-<h3 class="uk-heading-divider">Past Events</h3>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-    <ul class="event-list">
-
-    <%= render @events %>
-    </ul>
-  </div>
-</div>
+<%= render 'shared/event_table', events: @user.past_events, title: 'Past Events' %>
