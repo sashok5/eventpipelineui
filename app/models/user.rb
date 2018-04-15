@@ -57,7 +57,8 @@ class User < ActiveRecord::Base
   end
 
   def nearby_events
-    Event.near([city,state].join(', '))
+    return [] unless city && state
+    Event.upcoming.where(city: city, state: state)
   end
 
   def recommended_events

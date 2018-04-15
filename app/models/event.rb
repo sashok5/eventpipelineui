@@ -7,8 +7,6 @@ class Event < ApplicationRecord
   default_scope -> { order('event_date ASC') }
   validates :desc, presence: true, length: { maximum: 1000 }
   validates :created_by_user_id, presence: true
-  # geocoded_by :full_address
-  # after_validation :geocode
 
   def self.upcoming(after = DateTime.now, limit = 100)
     where('event_date > ?', after)
