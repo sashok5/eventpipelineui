@@ -1,5 +1,5 @@
 <div>
-  <div class="uk-card uk-card-default uk-card-body">
+  <div class="uk-card uk-card-hover uk-card-default uk-card-body">
 
     <div class="uk-child-width-1-2@s uk-grid-collapse uk-text-center" uk-grid>
 
@@ -34,7 +34,7 @@
         <% end %>
 
         <div class="uk-margin-large-left">
-          Category: <%= event.category %>
+          Category: <%= event.category.name %>
         </div>
 
         <% if event.tags.length > 0 %>
@@ -45,7 +45,7 @@
 
         <% if signed_in? %>
           <% if current_user.attending?(event) %>
-            <span class="uk-badge">Attending</span>
+            <span class="uk-margin-left uk-badge">Attending</span>
           <% end %>
 
           <% if event.creator == current_user %>

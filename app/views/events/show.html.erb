@@ -49,6 +49,8 @@
           <% end %>
         </div>
       <% end %>
+      <h1 class="uk-heading-divider"></h1>
+
 
     </div>
   </div>
@@ -66,3 +68,11 @@
   </div>
 </div>
 
+<% if @event.similar.any? %>
+
+  <div>
+    <h4>You may also be interested in these events</h4>
+    <%= render 'shared/event_table', events: @event.similar, title: '' %>
+  </div>
+
+<% end %>

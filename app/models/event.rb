@@ -19,7 +19,7 @@ class Event < ApplicationRecord
   end
 
   def category
-    EventCategory.find(category_id).name
+    EventCategory.find(category_id)
   end
 
   def num_attending
@@ -27,6 +27,12 @@ class Event < ApplicationRecord
   end
 
   def attending
+  end
+
+  def similar
+    events = category.events.select{ |e| e.event_id != id }
+    return [] unless events.any?
+    events.first(5)
   end
 
 end

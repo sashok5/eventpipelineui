@@ -1,6 +1,10 @@
 .body-container {
     background-color: #eeeeee;
 }
+
+.events-list a {
+    color: #80CBC3 !important;
+}
 .card-img-top {
     width: 253px;
     height: 253px

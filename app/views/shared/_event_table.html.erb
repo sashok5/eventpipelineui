@@ -1,4 +1,4 @@
-<% if events.any? %>
+<% if events && events.any? %>
 
   <% if @interest %>
     <h3 class="uk-heading-divider"><%= @interest.name %> Events</h3>
@@ -6,7 +6,7 @@
     <h3 class="uk-heading-divider"><%= title %></h3>
   <% end %>
 
-  <div class="uk-child-width-1-1" uk-grid>
+  <div class="events-list uk-child-width-1-1" uk-grid>
 
     <%= render partial: 'events/event', collection: events %>
 
