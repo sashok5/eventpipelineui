@@ -3,6 +3,7 @@ class Attendance < ActiveRecord::Base
   belongs_to :user
   self.primary_keys = :user_id, :event_id
 
+  scope :past, lambda { joins(:event).merge(Event.past) }
 
   validates :user_id, presence: true
   validates :event_id, presence: true
@@ -29,6 +30,5 @@ class Attendance < ActiveRecord::Base
     attendance = Attendance.find_by(:event_id => event.id, :user_id=> user.id)
     attendance.update_attributes(:RSVP_Status=> rsvp)
   end
-
 
 end

@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   def past_events
-    attendances.map(&:event)
+    attendances.past.map(&:event)
   end
 
   private

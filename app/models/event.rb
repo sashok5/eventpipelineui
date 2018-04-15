@@ -12,6 +12,10 @@ class Event < ApplicationRecord
     where('event_date > ?', after)
   end
 
+  def self.past
+    where('event_date < ?', DateTime.now)
+  end
+
   def full_address
     ["#{addr} #{street}", city, state, zip].compact.join(', ')
   end
