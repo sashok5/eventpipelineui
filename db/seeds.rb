@@ -73,13 +73,21 @@ EventCategory.create(name: 'Programming') #18
 EventCategory.create(name: 'Start-ups') #19
 EventCategory.create(name: 'Writing') #20
 
+LOCATIONS = [
+    {city: 'New York', state: 'NY'},
+    {city: 'Chicago', state: 'IL'},
+    {city: 'San Francisco', state: 'CA'}
+]
 
 # Create x number users
 def create_users(number)
   1.upto(number) do |n|
+    random_location = LOCATIONS.sample
     User.create(
-        name: "test#{n}",
-        email: "test#{n}@test.com",
+        name: "user_#{n}",
+        city: random_location[:city],
+        state: random_location[:state],
+        email: "user_#{n}@test.com",
         password: 'test'
     )
   end
