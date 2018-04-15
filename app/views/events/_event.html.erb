@@ -1,40 +1,61 @@
-<tr class="uk-table-link">
+<div>
+  <div class="uk-card uk-card-default uk-card-body">
 
-  <td>
-    <time datetime="<%= event.event_date %>">
-      <span class="day"><%= day(event.event_date) %></span>
-      <span class="month"><%= month(event.event_date)%></span>
-      <span class="year"><%= year(event.event_date) %></span><br>
-      <span class="time">Starts <%= time(event.event_start_time) %></span>
-    </time>
-  </td>
+    <div class="uk-child-width-1-2@s uk-grid-collapse uk-text-center" uk-grid>
 
-  <td class="uk-table-link">
-    <button class="uk-button uk-button-text uk-padding-small">
-      <a class="uk-link-reset" href="<%= event_url(event)%>"><%= event.title %></a>
-    </button>
-  </td>
+      <div class="uk-text-center" uk-grid>
+        <div class="uk-width-1-4">
+          <time class="date-display" datetime="<%= event.event_date %>">
+            <span class="day"><%= day(event.event_date) %></span><br>
+            <span class="month"><%= month(event.event_date)%></span>
+          </time>
+        </div>
+        <div class="uk-width-3-4">
+          <div class="small-text">
+            <time class="" datetime="<%= event.event_date %>">
+              <span class="month"><%= month(event.event_date)%></span>
+              <span class="day"><%= day(event.event_date) %>,</span>
+              <span class="year"><%= year(event.event_date) %>,</span>
+              <span class="time"><%= time(event.event_start_time) %></span>
+            </time>
+          </div>
+          <a class="uk-link-text" href="<%= event_url(event)%>">
+            <h3 class="uk-margin-remove"><%= event.title %></h3>
+          </a>
+          <div><span class="small-text">Hosted by</span> <%= event.event_host %></div>
+        </div>
+      </div>
 
-  <td class=""><%= event.event_host %></td>
-  <td class=""><%= event.category %></td>
-  <td class=""><%= event.num_attending %> attending</td>
-  <% if event.tags.length > 0 %>
-    <td class="">
-      Interests: <% event.tags.each do |tag| %>
-        <button class="uk-button uk-button-text"><%= tag.name %></button>
-      <% end %>
-    </td>
-  <% end %>
+      <div class="uk-text-center">
+        <% if event.num_attending %>
+          <div class="uk-margin-large-left">
+            <%= event.num_attending %> attending
+          </div>
+        <% end %>
 
-  <td>
-    <% if signed_in? %>
-      <% if current_user.attending?(event) %>
-        <%= Attendance.rsvp_status(event, current_user) %>
-        <span class="glyphicon glyphicon-ok"></span>
-      <% end %>
+        <div class="uk-margin-large-left">
+          Category: <%= event.category %>
+        </div>
 
-      <% if event.creator == current_user %>
-        <td><%= link_to "edit", edit_event_url(event) %></td>
-      <% end %>
-    <% end %>
-    </tr>
+        <% if event.tags.length > 0 %>
+          Interests: <% event.tags.each do |tag| %>
+            <button class="uk-button uk-button-text"><%= tag.name %></button>
+          <% end %>
+        <% end %>
+
+        <% if signed_in? %>
+          <% if current_user.attending?(event) %>
+            <span class="uk-badge">Attending</span>
+          <% end %>
+
+          <% if event.creator == current_user %>
+            <%= link_to "edit", edit_event_url(event) %>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

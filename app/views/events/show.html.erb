@@ -15,9 +15,9 @@
 
           <p>You joined this event, please RSVP. Are you attending?
             <%= form_for @attendance, url: {action: 'rsvp'}, method: 'put' do |f| %>
-              Yes <%= f.radio_button :RSVP_Status, '1', class: 'uk-radio' %>
-              No <%= f.radio_button :RSVP_Status, '2', class: 'uk-radio' %>
-              Maybe <%= f.radio_button :RSVP_Status, '3', class: 'uk-radio' %>
+              Yes <%= f.radio_button :RSVP_Status, '1', class: 'uk-margin-right uk-radio' %>
+              No <%= f.radio_button :RSVP_Status, '2', class: 'uk-margin-right uk-radio' %>
+              Maybe <%= f.radio_button :RSVP_Status, '3', class: 'uk-margin-right uk-radio' %>
             <% end %>
           </p>
 
@@ -45,7 +45,7 @@
         </div>
         <div class="col-lg-7">
           <% @event.tags.each do |tag| %>
-            <button type="button" class="btn btn-secondary"><%= tag.name %></button>
+            <button type="button" class="uk-button uk-button-secondary teal"><%= tag.name %></button>
           <% end %>
         </div>
       <% end %>

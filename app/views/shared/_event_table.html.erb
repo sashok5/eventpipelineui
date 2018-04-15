@@ -6,24 +6,10 @@
     <h3 class="uk-heading-divider"><%= title %></h3>
   <% end %>
 
-  <table class="uk-table uk-table-small uk-table-middle uk-table-divider uk-table-hover">
-
-    <thead class="uk-text-center">
-    <tr>
-      <th class="uk-table-small"></th>
-      <th class="uk-text-center">Event</th>
-      <th class="uk-text-center">Hosted By</th>
-      <th class="uk-text-center">Category</th>
-      <th></th>
-      <% if signed_in? %>
-        <th class="uk-table-shrink">RSVP</th>
-    <% end %>
-    </tr>
-    </thead>
-    <tbody class="uk-text-center">
+  <div class="uk-child-width-1-1" uk-grid>
 
     <%= render partial: 'events/event', collection: events %>
-    </tbody>
-  </table>
+
+  </div>
 
 <% end %>
