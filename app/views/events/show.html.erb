@@ -1,80 +1,78 @@
 <% provide(:title, @event.title) %>
 
 <% if signed_in? && @event.creator == current_user %>
-   <%= link_to "This is your event, would you like to edit?", edit_event_url(@event) %>
-
+  <%= link_to 'This is your event, would you like to edit?', edit_event_url(@event) %>
 <% end %>
-<div class="row">
-  <div class="col-lg-8"> <div class="jumbotron">
-    <h1 class="display-3"><%= @event.title %></h1>
-    <p class="lead"><%= @event.desc %>
-    </p>
-    <% if signed_in? %>
 
-      <% if @attendance %>
+<div uk-grid>
+  <div class="uk-width-2-3">
+    <div class="jumbotron">
+      <h3 class="uk-heading-divider"><%= @event.title %></h3>
+      <p class="lead"><%= @event.desc %></p>
+      <% if signed_in? %>
 
-        <p>You joined this event, please RSVP. Are you attending?
+        <% if @attendance %>
 
-          <%= form_for @attendance, url: {action: "rsvp"}, method: 'put' do |f| %>
-            Yes <%= f.radio_button :RSVP_Status, "1" %>
-            No <%= f.radio_button :RSVP_Status, "2" %>
-            Maybe <%= f.radio_button :RSVP_Status, "3" %>
-          <% end %>
+          <p>You joined this event, please RSVP. Are you attending?
+            <%= form_for @attendance, url: {action: 'rsvp'}, method: 'put' do |f| %>
+              Yes <%= f.radio_button :RSVP_Status, '1', class: 'uk-margin-right uk-radio' %>
+              No <%= f.radio_button :RSVP_Status, '2', class: 'uk-margin-right uk-radio' %>
+              Maybe <%= f.radio_button :RSVP_Status, '3', class: 'uk-margin-right uk-radio' %>
+            <% end %>
+          </p>
 
-
-        </p>
-
-      <% else %>
-        <p>
-          <%= button_to 'Attend this event!', attend_event_path(@event), class: "btn btn-lg btn-success", form: {style: 'display:inline-block;'}, method: :post %>
-        </p>
+        <% else %>
+          <p>
+            <%= button_to 'Attend this event!', attend_event_path(@event), class: "uk-button uk-button-secondary teal", form: {style: 'display:inline-block;'}, method: :post %>
+          </p>
+        <% end %>
       <% end %>
-
-    <% end %>
-  </div>
-
-    <div class="row marketing">
-      <div class="col-lg-5">
-
-        <h4>When</h4>
-        <p><%= @event.event_date %> Starts <%= time(@event.event_start_time) %></p>
-      </div>
-      <div class="col-lg-4">
-        <h4>Where</h4>
-        <p><%= @event.addr %> <%= @event.street %>
-          <%= @event.city %> <%= @event.state %> <%= @event.zip %></p>
-      </div>
-        <div class="col-lg-3">
-        <h4>Hosted by</h4>
-        <p><%= @event.event_host %></p>
-      </div>
-
     </div>
+
+    <dl class="uk-description-list">
+      <dt>When</dt>
+      <dd><%= @event.event_date %> Starts <%= time(@event.event_start_time) %></dd>
+      <dt>Where</dt>
+      <dd><%= @event.addr %> <%= @event.street %> <%= @event.city %> <%= @event.state %> <%= @event.zip %></dd>
+      <dt>Hosted by</dt>
+      <dd><%= @event.event_host %></dd>
+    </dl>
+
     <div class="row marketing">
-      <div class="col-lg-2">
-      <h4>Interests: </h4>
-      </div>
-      <div class="col-lg-7">
+      <% if @event.tags.any? %>
+        <div class="col-lg-2">
+          <h4>Interests: </h4>
+        </div>
+        <div class="col-lg-7">
           <% @event.tags.each do |tag| %>
-          <button type="button" class="btn btn-secondary"><%= tag.name %></button>
+            <button type="button" class="uk-button uk-button-secondary teal"><%= tag.name %></button>
           <% end %>
+        </div>
+      <% end %>
+      <h1 class="uk-heading-divider"></h1>
 
-      </div>
+
     </div>
   </div>
-  <div class="col-lg-4">
+  <div class="uk-width-1-3">
     <h3>Who's attending</h3>
-    <hr>
-    <div class="list-group">
+    <div class="">
       <% @event.users.each do |user| %>
-
-        <aside> <%= gravatar_for user, size: 52 %>
-          <%= link_to user.name, user %>
+        <aside class="uk-margin-bottom">
+          <%= gravatar_for user, size: 52 %>
+          <%= link_to user.name, user, class: 'uk-margin-left' %>
         </aside>
-        <hr>
-      <%end%>
+      <% end %>
 
     </div>
   </div>
 </div>
 
+<% if @event.similar.any? %>
+
+  <div>
+    <h4>You may also be interested in these events</h4>
+    <%= render 'shared/event_table', events: @event.similar, title: '' %>
+  </div>
+
+<% end %>

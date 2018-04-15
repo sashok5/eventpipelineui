@@ -1,10 +1,20 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h2 class="uk-heading-divider">All users</h2>
 
 <%= will_paginate %>
 
-<ul class="users">
+<table class="uk-table uk-table-small uk-table-middle uk-table-divider uk-table-hover">
+
+  <thead class="uk-text-center">
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody class="uk-text-center">
+
   <%= render @users %>
-</ul>
+  </tbody>
+</table>
 
 <%= will_paginate %>

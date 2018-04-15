@@ -1,28 +1,30 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+<nav class="uk-navbar-container teal" uk-navbar>
+  <div class="uk-navbar-left">
 
-
-  <%= link_to "Group Up", root_path, class:"navbar-brand" %>
-  <div class="collapse navbar-collapse" >
-    <ul class="navbar-nav mr-auto">
-
-      <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link" %></li>
-      <li class="nav-item"><%= link_to "Events", events_path, class:"nav-link" %></li>
-      <li class="nav-item"><%= link_to "Help", help_path, class:"nav-link" %></li>
+    <ul class="uk-navbar-nav">
+      <li class="uk-active"><%= link_to "Group Up", root_path %></li>
+      <li><%= link_to "Events", events_path %></li>
+      <li><%= link_to "Help", help_path %></li>
+      <li><%= link_to "Users", users_path %></li>
       <% if signed_in? %>
-        <li><%= link_to "Users", users_path, class:"nav-link" %></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <%= link_to "Profile", current_user, class:"dropdown-item" %>
-            <%= link_to "Settings", edit_user_path(current_user), class:"dropdown-item" %>
-            <%= link_to "Sign out", signout_path, method: "delete", class:"dropdown-item" %>
-          </div>
-        </li>
-<li><a href="<%= donate_path 'donate'%>" class="btn">Donate</a></li>
-      <% else %>
-        <li><%= link_to "Sign in", signin_path, class: "nav-link" %></li>
+        <li><%= link_to "Donate", donate_path %></li>
       <% end %>
-
+      <li>
+        <a href="#">Account</a>
+        <div class="uk-navbar-dropdown">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <% if signed_in? %>
+              <li class="nav-item dropdown">
+                <%= link_to "Profile", current_user %>
+                <%= link_to "Settings", edit_user_path(current_user) %>
+                <%= link_to "Sign out", signout_path, method: "delete" %>
+              </li>
+            <% else %>
+              <li class="dropdown"><%= link_to "Sign in", signin_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
     </ul>
 
   </div>

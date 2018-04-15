@@ -1,48 +1,46 @@
 <% provide(:title, 'Edit Event') %>
-<h1>Edit your event</h1>
+<h3 class="uk-heading-divider">Edit your event</h3>
 
 <%= form_for(@event) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <section>
-    <h3>Edit event information</h3>
 
-  <div class="form-group">
+  <div class="uk-margin-bottom">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control"  %>
+    <%= f.text_field :title, class: 'uk-input' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :desc, text="Event Description" %>
-    <%= f.text_area :desc, class: "form-control" %>
+  <div class="uk-margin-bottom">
+    <%= f.label :desc, text='Event Description' %>
+    <%= f.text_area :desc, class: 'uk-textarea' %>
   </div>
-    <div class="form-group">
+    <div class="uk-margin-bottom">
     <%= f.label :event_host%>
-    <%= f.text_field :event_host, class: "form-control" %>
+    <%= f.text_field :event_host, class: 'uk-input' %>
   </div>
 
-    <div class="form-group">
+    <div class="uk-margin-bottom">
       <%= f.label :event_date%>
-      <%= f.text_field :event_date, class: "form-control", placeholder: "YYYY-MM-DD" %>
+      <%= f.text_field :event_date, class: 'uk-input', placeholder: 'YYYY-MM-DD' %>
     </div>
 
-    <div class="form-group">
+    <div class="uk-margin-bottom">
       <%= f.label :event_start_time%>
-      <%= f.text_field :event_start_time, class: "form-control", placeholder:"HH:MM" %>
+      <%= f.text_field :event_start_time, class: 'uk-input', placeholder:'HH:MM' %>
     </div>
 
-    <div class="form-group">
-      <%=f.label :snippet_image, text="Event Image" %><br>
+    <div class="uk-margin-bottom">
+      <%=f.label :snippet_image, text='Event Image' %><br>
 
-      <div class="row">
+      <div uk-grid>
       <% $event_snippets.each do |image| %>
           
-          <div class="col-sm-1" style="text-align:center;">
+          <div class="uk-width-auto">
 
               <%= image_tag "eventsnippets/#{image.split('/').last}", size:100 %>
             <br>
             <%= f.radio_button :snippet_image, image.split('/').last, :checked => (@event.snippet_image == image.split('/').last) %>
-
 
           </div>
       <% end %>
@@ -53,34 +51,34 @@
     <section>
       <h3>Event location</h3>
 
-      <div class="form-group">
+      <div class="uk-margin-bottom">
 
-      <%= f.label :addr, text="Address" %>
-      <%=	 f.text_field :addr, class: "form-control"  %>
+      <%= f.label :addr, text='Address' %>
+      <%=	 f.text_field :addr, class: 'uk-input'  %>
       </div>
 
-        <div class="form-group">
+        <div class="uk-margin-bottom">
 
       <%= f.label :street %>
-      <%=	 f.text_field :street, class: "form-control"  %>
+      <%=	 f.text_field :street, class: 'uk-input'  %>
         </div>
 
-      <div class="form-group">
+      <div class="uk-margin-bottom">
 
       <%= f.label :city %>
-      <%=	 f.text_field :city, class: "form-control"  %>
+      <%=	 f.text_field :city, class: 'uk-input'  %>
       </div>
 
-      <div class="form-group">
+      <div class="uk-margin-bottom">
 
       <%= f.label :state %>
-      <%=	 f.text_field :state, class: "form-control"  %>
+      <%=	 f.text_field :state, class: 'uk-input'  %>
       </div>
 
-      <div class="form-group">
+      <div class="uk-margin-bottom">
 
       <%= f.label :zip %>
-      <%=	 f.text_field :zip, class: "form-control"  %>
+      <%=	 f.text_field :zip, class: 'uk-input'  %>
       </div>
 
     </section>
@@ -91,13 +89,12 @@
       <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |cb| %>
 
         <div class="form-check">
-        <%= cb.label(class: "form-check-label") {cb.check_box(class: "form-check-input") + cb.text} %>
+        <%= cb.label(class: '') {cb.check_box(class: 'uk-margin-right uk-checkbox') + cb.text} %>
         </div>
 
       <% end %>
 
     </section>
 
-
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit 'Save changes', class: 'uk-margin-top uk-button uk-button-secondary teal' %>
     <% end %>

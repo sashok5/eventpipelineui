@@ -1,11 +1,14 @@
-<div class="col-sm-3">
-  <div class="card">
-    <%= image_tag event_category.image, class: 'card-img-top' %>
-    <div class="card-block">
-      <p class="card-text">
-        <%= link_to event_category.name, controller: "events", action: "index", interest: event_category.category_id %></p>
+<div class="uk-width-1-5@s uk-grid-match">
+  <div class="uk-card">
 
-      </p>
+    <div class="category-div">
+      <%= image_tag event_category.image %>
     </div>
+    <p uk-margin class="uk-text-center">
+
+    <button class="uk-width-1-1 uk-button uk-button-secondary teal uk-button-large uk-padding-remove">
+      <%= link_to event_category.name, { :controller => 'events', :action => 'index', interest: event_category.category_id}, class: 'uk-link-reset' %>
+    </button>
+    </p>
   </div>
 </div>

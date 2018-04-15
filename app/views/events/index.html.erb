@@ -1,14 +1,3 @@
 <% provide(:title, 'Events') %>
-<% if @interest %>
 
-  <h4><%= @interest.name %> Events</h4>
-  <hr>
-<% end %>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-      <ul class="event-list">
-        <%= render @events %>
-      </ul>
-    </div>
-  </div>
+<%= render 'shared/event_table', events: @events, title: 'Events' %>
