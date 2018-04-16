@@ -1,0 +1,23 @@
+<div class="uk-child-width-auto" uk-grid>
+  <div class="uk-card uk-width-1-4">
+    <h1>
+      <% if gravatar_for @user %>
+        <a href="<%= user_path(@user) %>">
+          <%= gravatar_for @user, size: 50 %>
+        </a>
+      <% end %>
+      <span class="uk-margin-left"><%= @user.name %></span>
+    </h1>
+
+    <%= render 'shared/stats' %>
+
+    <div>
+      <%= link_to 'Create a new event!', newevent_path, class: 'uk-button uk-button-secondary teal' %>
+    </div>
+  </div>
+
+  <div class="uk-card uk-margin-left">
+
+    <%= render 'users/interest_form' %>
+  </div>
+</div>

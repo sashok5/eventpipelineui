@@ -6,24 +6,6 @@
 
   <%= render 'users/feed' %>
 
-  <div class="uk-width-1-3">
-
-    <h3 class="uk-heading-divider">Please update your interests</h3>
-    <%= form_for @user, url: {action: 'update_interests'}, method: 'put' do |f| %>
-
-      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |cb| %>
-
-        <div class="form-check">
-          <%= cb.label(class: 'form-check-label') {cb.check_box(class: 'uk-margin-right uk-checkbox') + cb.text} %>
-        </div>
-
-      <% end %>
-
-      <div class="uk-margin-top">
-        <%= f.submit class: 'uk-button uk-button-secondary teal' %>
-      </div>
-    <% end %>
-  </div>
 <% else %>
 
   <%= render 'follow_form' if signed_in? %>

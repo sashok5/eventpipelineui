@@ -2,16 +2,11 @@
 
 <%= render 'shared/user_info' %>
 
-
-<h1>
-  <%= @title %>
-</h1>
-
-
+<h3><%= @title %></h3>
 
 <div class="span8">
   <% if @users.any? %>
-    <ul class="users">
+    <ul class="uk-list">
       <%= render @users %>
     </ul>
     <%= will_paginate %>
