@@ -707,6 +707,21 @@ Event.create(event_host: "New York Start-Ups",
              event_start_time: "17:30",
              category_id: 19)
 
+def create_similarities(count)
+  similarities = [0.9, 0.8, 0.7, 0.6, 0.5]
+  count.times do
+    events = Event.where(category_id: rand(1..20)).sample(2)
+    events = Event.all.sample(2) unless events.count == 2
+    EventSimilarity.create(
+        event_id_1: events[0].event_id,
+        event_id_2: events[1].event_id,
+        similarity: similarities.sample
+    )
+  end
+end
+
+create_similarities(30)
+
 def create_attendances(user_count, event_count)
   1.upto(user_count) do |user_id|
     Attendance.create(
