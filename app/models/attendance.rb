@@ -4,6 +4,7 @@ class Attendance < ActiveRecord::Base
   self.primary_keys = :user_id, :event_id
 
   scope :past, lambda { joins(:event).merge(Event.past) }
+  scope :upcoming, lambda { joins(:event).merge(Event.upcoming) }
 
   validates :user_id, presence: true
   validates :event_id, presence: true

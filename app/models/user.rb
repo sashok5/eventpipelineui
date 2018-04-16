@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :tags, join_table: "user_tags"
   accepts_nested_attributes_for :tags
 
-
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
@@ -38,7 +37,6 @@ class User < ActiveRecord::Base
                             WHERE r.follower_id = #{self.id} and a.created_at > current_date
                              order by a.created_at DESC")
   end
-
 
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
@@ -67,6 +65,10 @@ class User < ActiveRecord::Base
 
   def past_events
     attendances.past.map(&:event)
+  end
+
+  def upcoming_events
+    attendances.upcoming.map(&:event)
   end
 
   private
