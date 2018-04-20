@@ -34,7 +34,7 @@ class Event < ApplicationRecord
   def similar
     events = Event.find(EventSimilarity.where(event_id_1: id).map(&:event_id_2))
     return [] unless events.any?
-    events.first(5)
+    events.first(10)
   end
 
 end

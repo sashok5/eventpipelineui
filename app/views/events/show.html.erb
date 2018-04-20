@@ -8,7 +8,7 @@
   <div class="uk-width-2-3">
     <div class="jumbotron">
       <h3 class="uk-heading-divider"><%= @event.title %></h3>
-      <p class="lead"><%= @event.desc %></p>
+      <p class="lead"><%= raw( @event.desc) %></p>
       <% if signed_in? %>
 
         <% if @attendance %>

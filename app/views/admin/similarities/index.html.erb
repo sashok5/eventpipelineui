@@ -1,0 +1,42 @@
+<% provide(:title, 'Event Similarities') %>
+
+<%= form_tag('/admin/similarities/') do %>
+
+  <section>
+
+    <div class="uk-margin-bottom">
+      <%= label_tag 'range_from', 'From' %>
+      <%= text_field_tag 'range_from' %>
+      <%= label_tag 'range_to', 'To' %>
+      <%= text_field_tag 'range_to' %>
+      <%= label_tag 'limit', 'Limit' %>
+      <%= text_field_tag 'limit' %>
+      <%= submit_tag 'Load' %>
+    </div>
+  </section>
+
+  <% if @records_array %>
+    <section>
+      <table>
+        <tr>
+          <th>Similarity</th>
+          <th>Event 1</th>
+          <th>Event 2</th>
+        </tr>
+        <% @records_array.each do |item| %>
+          <tr>
+            <td>
+              <%= item["similarity"] %>
+            </td>
+            <td>
+              <%= link_to item['event_id_1'], event_url(item["event_id_1"]), target: :_blank %>
+            </td>
+            <td>
+              <%= link_to item['event_id_2'], event_url(item["event_id_2"]), target: :_blank %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </section>
+  <% end %>
+<% end %>

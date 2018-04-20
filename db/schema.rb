@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415231837) do
+ActiveRecord::Schema.define(version: 20180420003908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,19 @@ ActiveRecord::Schema.define(version: 20180415231837) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shortname"
     t.index ["name"], name: "index_event_categories_on_name", unique: true
+  end
+
+  create_table "event_groups", primary_key: "group_id", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "city"
+    t.string "country"
+    t.string "description"
+    t.string "group_name"
+    t.string "state"
+    t.datetime "created"
+    t.integer "members"
   end
 
   create_table "event_posts", force: :cascade do |t|
@@ -59,6 +71,15 @@ ActiveRecord::Schema.define(version: 20180415231837) do
     t.index ["tag_id"], name: "index_event_tags_on_tag_id"
   end
 
+  create_table "event_topic_mappings", primary_key: ["topic_id", "event_id"], force: :cascade do |t|
+    t.bigint "topic_id", null: false
+    t.bigint "event_id", null: false
+  end
+
+  create_table "event_topics", primary_key: "topic_id", force: :cascade do |t|
+    t.string "topic_string"
+  end
+
   create_table "event_views", force: :cascade do |t|
     t.bigint "event_id"
     t.bigint "user_id"
@@ -85,6 +106,9 @@ ActiveRecord::Schema.define(version: 20180415231837) do
     t.bigint "category_id"
     t.float "latitude"
     t.float "longitude"
+    t.integer "group_id"
+    t.integer "rsvp_count"
+    t.string "meetup_id"
   end
 
   create_table "popular", primary_key: "event_id", force: :cascade do |t|
@@ -137,8 +161,14 @@ ActiveRecord::Schema.define(version: 20180415231837) do
     t.datetime "updated_at", null: false
     t.string "city"
     t.string "state"
+    t.string "member_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token"
+  end
+
+  create_table "users_in_groups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
   end
 
   add_foreign_key "attendances", "events", primary_key: "event_id"

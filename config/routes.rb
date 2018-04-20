@@ -29,4 +29,17 @@ GroupUp::Application.routes.draw do
   #match '/attending_events', to: 'users#attending_events', via:'get'
   match '/newevent', to: 'events#new', via:'get'
 
+  concern :admin do
+    collection do
+      get :admin
+    end
+  end
+
+  namespace :admin do
+    match '/similarities', to: 'similarities#index', via: [:get, :post]
+    match '/topics', to: 'topics#index', via: [:get, :post]
+  end
+
+
+
 end

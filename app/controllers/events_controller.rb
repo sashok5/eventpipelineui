@@ -4,9 +4,9 @@ class EventsController < ApplicationController
     category_id = params[:interest]
     if category_id
       @interest = EventCategory.find(category_id)
-      @events = @interest.events
+      @events = @interest.events.paginate(page: params[:page])
     else
-      @events = Event.upcoming
+      @events = Event.upcoming.paginate(page: params[:page])
     end
   end
 

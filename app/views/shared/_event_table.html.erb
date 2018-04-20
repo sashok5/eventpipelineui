@@ -1,4 +1,9 @@
+
 <% if events && events.any? %>
+
+  <% if @interest %>
+    <%= will_paginate %>
+  <% end %>
 
   <% if @interest %>
     <h3 class="uk-heading-divider"><%= @interest.name %> Events</h3>

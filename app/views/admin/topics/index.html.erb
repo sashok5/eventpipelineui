@@ -1,0 +1,57 @@
+<% provide(:title, 'Event Topics') %>
+
+<%= form_tag('/admin/topics/') do %>
+  <input type="hidden" id="topic_id" name="topic_id" />
+  <section>
+    <h3>Topics</h3>
+    <table>
+      <tr>
+        <th>Topic ID</th>
+        <th>Topic</th>
+      </tr>
+      <% @topics.each do |item| %>
+        <tr>
+          <td>
+            <%= item["topic_id"] %>
+          </td>
+          <td>
+            <%= item["topic_string"] %>
+          </td>
+          <td>
+            <input type="button" value="Load" onclick="$('#topic_id').val(<%= item["topic_id"]%>); this.form.submit();" />
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+<% end %>
+
+<% if @events %>
+  <section>
+    <h3>Events to topics</h3>
+    <table cellpadding="5">
+      <tr>
+        <th>Topic ID</th>
+        <th>Topic</th>
+        <th>Event name</th>
+        <th>Event description</th>
+      </tr>
+      <% @events.each do |item| %>
+        <tr>
+          <td>
+            <%= item["topic_id"] %>
+          </td>
+          <td>
+            <%= item["topic_string"] %>
+          </td>
+          <td>
+            <%= link_to item['event_id'], event_url(item["event_id"]), target: :_blank %>
+          </td>
+          <td>
+            <%= item["title"] %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+<% end %>
