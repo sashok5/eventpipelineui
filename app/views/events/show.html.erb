@@ -30,6 +30,8 @@
     </div>
 
     <dl class="uk-description-list">
+      <dt>Category</dt>
+      <dd><%= @event.category.name %></dd>
       <dt>When</dt>
       <dd><%= @event.event_date %> Starts <%= time(@event.event_start_time) %></dd>
       <dt>Where</dt>
@@ -72,7 +74,7 @@
 
   <div>
     <h4>You may also be interested in these events</h4>
-    <%= render 'shared/event_table', events: @event.similar, title: '' %>
+    <%= render 'shared/similar_event_table', events: @event.similar, title: '', main_event: @event %>
   </div>
 
 <% end %>

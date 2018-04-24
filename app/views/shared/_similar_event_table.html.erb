@@ -1,0 +1,10 @@
+
+<% if events && events.any? %>
+
+  <div class="events-list uk-child-width-1-1" uk-grid>
+
+    <%= render partial: 'events/event', collection: events, locals: { main_event: @event } %>
+
+  </div>
+
+<% end %>
