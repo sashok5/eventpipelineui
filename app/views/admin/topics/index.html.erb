@@ -35,6 +35,7 @@
         <th>Topic</th>
         <th>Event name</th>
         <th>Event description</th>
+        <th>Score</th>
       </tr>
       <% @events.each do |item| %>
         <tr>
@@ -49,6 +50,9 @@
           </td>
           <td>
             <%= item["title"] %>
+          </td>
+          <td>
+            <%= item["score"] %>
           </td>
         </tr>
       <% end %>

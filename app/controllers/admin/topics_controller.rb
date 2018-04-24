@@ -9,7 +9,7 @@ module Admin
           sql = "select * from event_topics
 et JOIN event_topic_mappings tm on tm.topic_id = et.topic_id
 join events e on e.event_id = tm.event_id
-where et.topic_id = #{params[:topic_id]}"
+where et.topic_id = #{params[:topic_id]} ORDER BY score DESC"
           @events = ActiveRecord::Base.connection.execute(sql)
 
         end
