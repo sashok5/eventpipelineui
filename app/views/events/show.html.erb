@@ -30,6 +30,8 @@
     </div>
 
     <dl class="uk-description-list">
+      <dt>Category</dt>
+      <dd><%= @event.category.name %></dd>
       <dt>When</dt>
       <dd><%= @event.event_date %> Starts <%= time(@event.event_start_time) %></dd>
       <dt>Where</dt>
