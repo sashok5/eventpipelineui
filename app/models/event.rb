@@ -32,8 +32,10 @@ class Event < ApplicationRecord
   end
 
   def similar
-    events = Event.find(EventSimilarity.where(event_id_1: id).map(&:event_id_2))
-    return [] unless events.any?
+    event_ids = EventSimilarity.where(event_id_1: id).map(&:event_id_2)
+    return [] unless event_ids.any?
+    events = Event.where(:event_id => event_ids)
+    events = event_ids.map {|id| events.detect {|event| event.event_id == id } }
     events.first(10)
   end
 
