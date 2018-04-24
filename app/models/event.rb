@@ -39,4 +39,10 @@ class Event < ApplicationRecord
     events.first(10)
   end
 
+  def similarity(main_event)
+    rel = EventSimilarity.where(event_id_1: main_event.id, event_id_2: id).first
+    return unless rel
+    rel.similarity
+  end
+
 end

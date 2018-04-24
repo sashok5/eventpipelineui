@@ -37,6 +37,12 @@
           Category: <%= event.category.name %>
         </div>
 
+        <% if local_assigns[:main_event] %>
+          <div class="uk-margin-large-left">
+            Similarity: <%= event.similarity(local_assigns[:main_event]) %>
+          </div>
+        <% end %>
+
         <% if event.tags.length > 0 %>
           Interests: <% event.tags.each do |tag| %>
             <button class="uk-button uk-button-text"><%= tag.name %></button>
