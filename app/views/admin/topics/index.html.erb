@@ -4,21 +4,21 @@
   <input type="hidden" id="topic_id" name="topic_id" />
   <section>
     <h3>Topics</h3>
-    <table>
+    <table class="uk-table">
       <tr>
-        <th>Topic ID</th>
+        <th></th>
         <th>Topic</th>
       </tr>
       <% @topics.each do |item| %>
         <tr>
-          <td>
+          <td class="uk-table-shrink">
             <%= item["topic_id"] %>
           </td>
           <td>
             <%= item["topic_string"] %>
           </td>
           <td>
-            <input type="button" value="Load" onclick="$('#topic_id').val(<%= item["topic_id"]%>); this.form.submit();" />
+            <input type="button" class="uk-button uk-button-secondary teal" value="Load" onclick="$('#topic_id').val(<%= item["topic_id"]%>); this.form.submit();" />
           </td>
         </tr>
       <% end %>

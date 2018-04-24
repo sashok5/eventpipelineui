@@ -5,19 +5,27 @@
   <section>
 
     <div class="uk-margin-bottom">
-      <%= label_tag 'range_from', 'From' %>
-      <%= text_field_tag 'range_from' %>
-      <%= label_tag 'range_to', 'To' %>
-      <%= text_field_tag 'range_to' %>
-      <%= label_tag 'limit', 'Limit' %>
-      <%= text_field_tag 'limit' %>
-      <%= submit_tag 'Load' %>
+      <%= label_tag :range_from, 'From' %>
+      <%= text_field_tag :range_from, '', class: 'uk-input' %> <br>
     </div>
+
+    <div class="uk-margin-bottom">
+      <%= label_tag :range_to, 'To' %>
+      <%= text_field_tag :range_to, '', class: 'uk-input' %>
+    </div>
+
+    <div class="uk-margin-bottom">
+      <%= label_tag :limit, 'Limit' %>
+      <%= text_field_tag :limit, '', class: 'uk-input' %>
+    </div>
+
+    <%= submit_tag 'Load', class: 'uk-button uk-button-secondary teal' %>
+
   </section>
 
   <% if @records_array %>
     <section>
-      <table>
+      <table class="uk-table">
         <tr>
           <th>Similarity</th>
           <th>Event 1</th>
