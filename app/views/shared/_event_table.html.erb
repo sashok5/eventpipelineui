@@ -5,11 +5,13 @@
     <%= will_paginate %>
   <% end %>
 
-  <% if @interest %>
-    <h3 class="uk-heading-divider"><%= @interest.name %> Events</h3>
-  <% else %>
-    <h3 class="uk-heading-divider"><%= title %></h3>
-  <% end %>
+  <div class="uk-margin-large-top uk-section uk-section-secondary uk-section-small teal">
+    <% if @interest %>
+      <h2 class="uk-heading-bullet uk-text-center"><%= @interest.name %> Events</h2>
+    <% else %>
+      <h2 class="uk-heading-bullet uk-text-center"><span><%= title %></span></h2>
+    <% end %>
+  </div>
 
   <div class="events-list uk-child-width-1-1" uk-grid>
 
