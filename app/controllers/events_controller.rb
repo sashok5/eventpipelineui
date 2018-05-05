@@ -24,9 +24,9 @@ class EventsController < ApplicationController
     end
   end
 
- def edit
-   @event = Event.find(params[:id])
- end
+  def edit
+    @event = Event.find(params[:id])
+  end
 
   def new
     @event = Event.new
@@ -84,13 +84,22 @@ class EventsController < ApplicationController
     end
   end
 
+  def search
+    search = Api.new
+    @results = search.search(params[:query])
+    json_response(@results)
+  end
 
   private
 
-    def event_params
-      params.require(:event).permit(:title, :desc, :event_host, :event_date, :event_start_time,
-                                    :snippet_image, :addr, :street, :city, :state, :zip, tag_ids: [])
-    end
+  def json_response(object, status = :ok)
+    render json: object, status: status
+  end
+
+  def event_params
+    params.require(:event).permit(:title, :desc, :event_host, :event_date, :event_start_time,
+                                  :snippet_image, :addr, :street, :city, :state, :zip, tag_ids: [])
+  end
 
   def rsvp_params
     params.permit(:RSVP_status)

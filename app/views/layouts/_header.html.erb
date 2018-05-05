@@ -34,6 +34,13 @@
           </ul>
         </div>
       </li>
+      <li>
+        <div class="uk-navbar-item">
+          <%= form_with url: search_path, local: true do |f| %>
+            <%= f.text_field :query, class: 'uk-input uk-form-width-small', placeholder: 'search events' %>
+          <% end %>
+        </div>
+      </li>
     </ul>
 
   </div>

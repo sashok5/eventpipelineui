@@ -28,6 +28,7 @@ GroupUp::Application.routes.draw do
   #match '/created_events', to: 'users#created_events', via:'get'
   #match '/attending_events', to: 'users#attending_events', via:'get'
   match '/newevent', to: 'events#new', via:'get'
+  post '/search', to: 'events#search'
 
   concern :admin do
     collection do
