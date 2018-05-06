@@ -8,6 +8,8 @@ class Api
   end
 
   def search(query)
-    self.class.get("/api/events/search/#{query}")
+    query = query.gsub(' ', '%20')
+    results = self.class.get("/api/events/search/#{query}").parsed_response
+    JSON.parse(results['result'])
   end
 end
