@@ -10,6 +10,13 @@ class Api
   def search(query)
     query = query.gsub(' ', '%20')
     results = self.class.get("/api/events/search/#{query}").parsed_response
-    JSON.parse(results['result'])
+    find_events(JSON.parse(results['result']))
+  end
+
+  def find_events(results)
+    return [] unless results.any?
+    results.map do |event|
+      Event.find(event['event_id'])
+    end
   end
 end

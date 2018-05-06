@@ -86,15 +86,11 @@ class EventsController < ApplicationController
 
   def search
     search = Api.new
-    @results = search.search(params[:query])
-    json_response(@results)
+    @search_results = search.search(params[:query])
+    @query = params[:query]
   end
 
   private
-
-  def json_response(object, status = :ok)
-    render json: object, status: status
-  end
 
   def event_params
     params.require(:event).permit(:title, :desc, :event_host, :event_date, :event_start_time,
