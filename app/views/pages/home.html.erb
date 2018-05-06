@@ -1,6 +1,9 @@
 <% if signed_in? %>
   <h2>Hello, <%= current_user.name %>!</h2>
-  <%= render 'shared/event_table', events: @recommended_events, title: 'Recommended Events For You' %>
+  <%= render 'shared/event_table', events: @popular_events, title: 'Popular Events' %>
+  <%= render 'shared/event_table', events: @follower_events, title: 'Recommended based on users you are following' %>
+  <%= render 'shared/event_table', events: @content_events, title: 'Recommended based on similar events you went in the past' %>
+  <%= render 'shared/event_table', events: @collaborative_events, title: 'Recommended based on other users like you' %>
 <% else %>
 
   <div class="uk-text-center">
@@ -8,12 +11,12 @@
     <p>This is the home page for starting your own group and joining the exciting world of groups and meets.</p>
     <%= link_to "Sign up now!", signup_path, class: 'uk-button uk-button-secondary teal' %>
   </div>
+  <%= render 'shared/event_table', events: @popular_events, title: 'Popular Events' %>
 <% end %>
 
 <br>
 <div class="uk-heading-divider"></div>
 
-<%= render 'shared/event_table', events: @popular_events, title: 'Popular Events' %>
 
 <%= render 'shared/event_table', events: @upcoming_events, title: 'Upcoming Events'  %>
 
