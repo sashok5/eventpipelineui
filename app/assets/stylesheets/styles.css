@@ -2,6 +2,10 @@
     background-color: #eeeeee;
 }
 
+.event-header:first-of-type {
+    margin-top: -20px !important;
+}
+
 .events-list a {
     color: #80CBC3 !important;
 }
