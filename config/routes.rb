@@ -5,6 +5,7 @@ GroupUp::Application.routes.draw do
       put :update_interests
     end
   end
+  post '/recommend', to: 'users#recommend', as: :recommend
   resources :events do
     member do
       get 'interest'

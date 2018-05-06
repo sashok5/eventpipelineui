@@ -42,7 +42,6 @@ class UsersController < ApplicationController
   end
 
   def update_interests
-
     @tag_params = tag_params["tag_ids"].reject!{|a| a==""}
     if @user.update_attribute(:tag_ids, @tag_params )
       flash[:success] = "Interests updated"
@@ -87,6 +86,12 @@ class UsersController < ApplicationController
   def past_events
     @user = User.find(params[:id])
     @events = @user.events
+  end
+
+  def recommend
+    search = Api.new
+    @search_results = search.recommend(current_user)
+    redirect_to root_path
   end
 
   private

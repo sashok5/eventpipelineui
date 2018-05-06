@@ -1,5 +1,6 @@
 <% if signed_in? %>
   <h2>Hello, <%= current_user.name %>!</h2>
+  <%= button_to 'Recommend me events', :recommend, method: :post, class: 'uk-button uk-button-secondary teal' %>
   <%= render 'shared/event_table', events: @popular_events, title: 'Popular Events' %>
   <%= render 'shared/event_table', events: @follower_events, title: 'Recommended based on users you are following' %>
   <%= render 'shared/event_table', events: @content_events, title: 'Recommended based on similar events you went in the past' %>
