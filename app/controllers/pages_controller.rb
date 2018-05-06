@@ -2,14 +2,14 @@ class PagesController < ApplicationController
 
   def home
     if signed_in?
-      @popular_events = Recommended.popular(current_user).events
-      @follower_events = Recommended.follower(current_user).events
-      @content_events = Recommended.content(current_user).events
-      @collaborative_events = Recommended.collaborative(current_user).events
+      @popular_events = Recommended.popular.events(current_user)
+      @follower_events = Recommended.follower.events(current_user)
+      @content_events = Recommended.content.events(current_user)
+      @collaborative_events = Recommended.collaborative.events(current_user)
     else
       @popular_events = Popular.events(20)
     end
-    @upcoming_events = Event.upcoming.limit(2)
+    @upcoming_events = Event.upcoming(current_user).limit(2)
   end
 
   def help

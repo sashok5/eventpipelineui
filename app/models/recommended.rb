@@ -10,25 +10,27 @@ class Recommended < ApplicationRecord
       collaborative: 4
   }
 
-  def self.events
-    order(:rank).limit(20).map do |r|
-      Event.find(r.event_id)
-    end
+  def self.popular
+    where(type: TYPES[__method__])
   end
 
-  def self.popular(user)
-    where(user_id: user.id).where(type: TYPES[__method__])
+  def self.follower
+    where(type: TYPES[__method__])
   end
 
-  def self.follower(user)
-    where(user_id: user.id).where(type: TYPES[__method__])
+  def self.content
+    where(type: TYPES[__method__])
   end
 
-  def self.content(user)
-    where(user_id: user.id).where(type: TYPES[__method__])
+  def self.collaborative
+    where(type: TYPES[__method__])
   end
 
-  def self.collaborative(user)
-    where(user_id: user.id).where(type: TYPES[__method__])
+  def self.events(user)
+    where(user_id: user.id).order(:rank).limit(20).map do |r|
+      event = Event.find(r.event_id)
+      next if event.state != user.state
+      event
+    end.compact
   end
 end

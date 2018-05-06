@@ -4,7 +4,9 @@ class Popular < ApplicationRecord
 
   def self.events(limit)
     order(num_of_attending: :desc, num_of_clicks: :desc).limit(limit).map do |p|
-      Event.find(p.id)
-    end
+      e = Event.find(p.id)
+      next unless e.state == 'NY'
+      e
+    end.compact
   end
 end

@@ -8,8 +8,14 @@ class Event < ApplicationRecord
   validates :desc, presence: true, length: { maximum: 1000 }
   validates :created_by_user_id, presence: true
 
-  def self.upcoming(after = DateTime.now, limit = 100)
-    where('event_date > ?', after)
+  def self.upcoming(user = nil)
+    after = DateTime.now
+    if user
+      location = user.state
+      where('event_date > ?', after).where(state: location)
+    else
+      where('event_date > ?', after)
+    end
   end
 
   def self.past
